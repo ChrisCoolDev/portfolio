@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro'
+import { getPublishedArticles, getArticleWithContent } from '../../lib/notion'
+import type { ArticleWithContent } from '../../lib/notion'
+
+export async function getStaticPaths() {
+  const articles = await getPublishedArticles()
+
+  return articles.map(article => ({
+    params: { slug: article.slug },
+  }))
+}
+
+const { slug } = Astro.params
+const article = await getArticleWithContent(slug as string)
+
+if (!article) {
+  return Astro.redirect('/blog')
+}
+---
+
+<BaseLayout
+  title={`${article.title} — Christian Ludovic`}
+  description={article.excerpt}
+>
+  <div class="flex flex-col min-h-screen">
+    <div class="w-full max-w-6xl mx-auto px-4 flex-1 sm:px-6 lg:px-8">
+      <div class="w-full pb-24">
+        <Header />
+
+        <main class="min-h-full mt-10 sm:mt-12">
+          <div class="relative max-w-4xl mx-auto lg:max-w-none">
+            <div class="mb-8">
+            <a href="/blog" class="inline-flex items-center text-sm group gap-x-4 text-zinc-400 hover:text-zinc-500 dark:text-zinc-500 dark:hover:text-zinc-400">
+              <span class="flex items-center justify-center size-10 transition bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20">
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 transition stroke-zinc-500 group-hover:stroke-zinc-400">
+                  <path d="M7.25 11.25 3.75 8m0 0 3.5-3.25M3.75 8h8.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+              Retour aux articles
+            </a>
+
+            <div class="mt-10 lg:grid lg:grid-cols-4 lg:gap-x-12">
+              <!-- Article content -->
+              <article class="lg:col-span-3">
+                <header class="flex flex-col">
+                  <div class="flex items-center gap-x-4">
+                    <time datetime={article.date} class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+                      {article.dateFormatted}
+                    </time>
+                    {article.tag && (
+                      <span class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+                        {article.tag}
+                      </span>
+                    )}
+                  </div>
+                  <h1 class="mt-4 font-heading text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                    {article.title}
+                  </h1>
+                </header>
+
+                {article.cover && (
+                  <div class="aspect-h-2 aspect-w-4 mt-8">
+                    <img
+                      src={article.cover}
+                      alt={article.title}
+                      class="object-cover shadow-xl"
+                    />
+                  </div>
+                )}
+
+                <div
+                  class="prose prose-lg prose-blue mt-8 text-zinc-600 dark:prose-invert dark:text-zinc-300/80 lg:max-w-none"
+                  set:html={article.content}
+                />
+              </article>
+
+              <!-- Table of contents sidebar -->
+              {article.headings.length > 0 && (
+                <aside class="hidden lg:mt-10 lg:block">
+                  <div class="sticky top-10">
+                    <h4 class="text-sm font-medium leading-5 text-zinc-700 dark:text-zinc-200">
+                      Sommaire
+                    </h4>
+                    <ul class="toc mt-4 text-sm leading-6 text-zinc-500 dark:text-zinc-400">
+                      {article.headings.map(heading => (
+                        <li>
+                          <a
+                            href={`#${heading.id}`}
+                            class:list={[
+                              'block py-1.5 text-zinc-500 hover:text-zinc-800 transition ease-in dark:text-zinc-400 dark:hover:text-zinc-300',
+                              { 'pl-4': heading.level === 2 },
+                              { 'pl-8': heading.level === 3 },
+                            ]}
+                          >
+                            {heading.text}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </aside>
+              )}
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <Footer />
+  </div>
+</BaseLayout>

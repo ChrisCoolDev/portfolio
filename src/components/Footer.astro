@@ -1,0 +1,41 @@
+---
+const navItems = [
+  { label: "Accueil", href: "/" },
+  { label: "A propos", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Projets", href: "/projects" },
+];
+---
+
+<footer class="lg:pb-10" aria-labelledby="Pied de page">
+  <div
+    class="relative bg-gray-50 max-w-6xl mx-auto py-10 px-4 sm:px-6 lg:px-8 dark:bg-zinc-800"
+  >
+    <div class="space-y-4 items-center justify-between sm:flex sm:space-y-0">
+      <div>
+        <p class="text-sm text-zinc-900 font-medium sm:mt-0 dark:text-white">
+          © Christian Ludovic {new Date().getFullYear()}. Tous droits reservés.
+        </p>
+        <div
+          class="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-sm text-zinc-700 dark:text-zinc-300"
+        >
+          {
+            navItems.map((item, index) => (
+              <>
+                <a
+                  class="transition hover:text-zinc-900 dark:hover:text-white"
+                  href={item.href}
+                >
+                  {item.label}
+                </a>
+                {index < navItems.length - 1 && (
+                  <span class="text-blue-400">✦</span>
+                )}
+              </>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

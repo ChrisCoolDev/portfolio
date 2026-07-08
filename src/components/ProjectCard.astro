@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string
+  href: string
+  image: string
+  techStack: string
+  description: string
+  type: 'client' | 'opensource' | 'side-project'
+}
+
+const { title, href, image, techStack, description, type } = Astro.props
+---
+
+<div class="group relative isolate">
+  <div class="relative overflow-hidden w-full ring-1 ring-zinc-900/10 dark:ring-white/10 shrink-0">
+    <img src={image} alt={`${title} screenshot`} class="aspect-[16/9] w-full transition duration-300 ease-in-out group-hover:scale-110 object-cover shadow-sm sm:aspect-[2/1] lg:aspect-[3/2]" />
+    <span class="pointer-events-none absolute bottom-4 right-4 bg-zinc-900 p-2 text-zinc-300" aria-hidden="true">
+      <svg class="size-4 transition duration-300 ease-in-out group-hover:rotate-45" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"></path>
+      </svg>
+    </span>
+  </div>
+  <div class="mt-6">
+    <span class="inline-flex items-center gap-x-1.5 bg-zinc-300/10 px-2 py-1 text-xs font-medium ring-1 ring-inset ring-zinc-400/20 text-zinc-900 dark:text-white">
+      <svg class={`size-1.5 ${type === 'opensource' ? 'fill-yellow-500' : type === 'side-project' ? 'fill-blue-500' : 'fill-teal-500'}`} viewBox="0 0 6 6" aria-hidden="true">
+        <circle cx="3" cy="3" r="3"></circle>
+      </svg>
+      {type === 'opensource' ? 'Open source' : type === 'side-project' ? 'Side project' : 'Client'}
+    </span>
+    <h4 class="mt-3 text-sm leading-5 text-zinc-400 dark:text-zinc-500">
+      {techStack}
+    </h4>
+    <h3 class="mt-1 text-base font-semibold leading-6 text-zinc-900 group-hover:underline dark:text-white">
+      <a href={href} target="_blank" class="focus:outline-none">
+        <span class="absolute inset-0" aria-hidden="true"></span>
+        {title}
+      </a>
+    </h3>
+    <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
+      {description}
+    </p>
+  </div>
+</div>

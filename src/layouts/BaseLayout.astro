@@ -1,0 +1,141 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'Christian Ludovic - Software Engineer · Web Developer',
+  description = "Software engineering student at Gümüşhane University of Technology. I build web applications using Laravel, React, Vue.js, Next.js and Tailwind CSS.",
+} = Astro.props
+---
+
+<html lang="fr" class="scroll-smooth" color-theme="light" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Christian Ludovic" />
+    <meta
+      name="keywords"
+      content="Christian Ludovic, software engineer, web developer, Laravel, PHP, React, Vue.js, Next.js, Tailwind CSS, front-end, full-stack"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Christian Ludovic" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:image" content="/images/meta-banner.png" />
+    <meta property="og:url" content="https://chrisx01.netlify.app" />
+    <link rel="canonical" href="https://chrisx01.netlify.app" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/images/meta-banner.png" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="color-scheme" content="light" />
+
+    <!-- Alpine.js -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <!-- Theme script (inline, runs before render to avoid flash) -->
+    <script is:inline>
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', (e) => {
+          if (localStorage.theme === 'system') {
+            if (e.matches) {
+              document.documentElement.classList.add('dark')
+              document.documentElement.setAttribute('data-theme', 'dark')
+            } else {
+              document.documentElement.classList.remove('dark')
+              document.documentElement.setAttribute('data-theme', 'light')
+            }
+          }
+          updateThemeAndSchemeColor()
+        })
+
+      function updateTheme() {
+        if (!('theme' in localStorage)) {
+          localStorage.theme = 'system'
+        }
+
+        switch (localStorage.theme) {
+          case 'system':
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              document.documentElement.classList.add('dark')
+              document.documentElement.setAttribute('data-theme', 'dark')
+            } else {
+              document.documentElement.classList.remove('dark')
+              document.documentElement.setAttribute('data-theme', 'light')
+            }
+            document.documentElement.setAttribute('color-theme', 'system')
+            break
+
+          case 'dark':
+            document.documentElement.classList.add('dark')
+            document.documentElement.setAttribute('color-theme', 'dark')
+            document.documentElement.setAttribute('data-theme', 'dark')
+            break
+
+          case 'light':
+            document.documentElement.classList.remove('dark')
+            document.documentElement.setAttribute('color-theme', 'light')
+            document.documentElement.setAttribute('data-theme', 'light')
+            break
+        }
+
+        updateThemeAndSchemeColor()
+      }
+
+      function updateThemeAndSchemeColor() {
+        if (document.documentElement.classList.contains('dark')) {
+          document
+            .querySelector('meta[name="color-scheme"]')
+            .setAttribute('content', 'dark')
+          document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute('content', '#171923')
+          return
+        }
+
+        document
+          .querySelector('meta[name="color-scheme"]')
+          .setAttribute('content', 'light')
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute('content', '#ffffff')
+      }
+
+      updateTheme()
+
+      function toggle() {
+        localStorage.theme = localStorage.theme === 'dark' ? 'light' : 'dark'
+        updateTheme()
+      }
+    </script>
+  </head>
+  <body
+    class="h-full font-sans antialiased bg-white dark:bg-zinc-900 selection:bg-black selection:text-zinc-300 dark:selection:bg-white/10 dark:selection:text-gray-400"
+  >
+    <slot />
+  </body>
+</html>

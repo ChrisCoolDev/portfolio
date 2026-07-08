@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import { Image } from 'astro:assets'
+import meImage from '../assets/images/me.jpg'
+---
+
+<BaseLayout
+  title="A propos — Christian Ludovic"
+  description="Software engineering student at Gümüşhane University of Technology. Web Developer spécialisé en front-end et full-stack."
+>
+  <div class="flex flex-col min-h-screen">
+    <div class="w-full max-w-6xl mx-auto px-4 flex-1 sm:px-6 lg:px-8 overflow-hidden">
+      <div class="w-full pb-24">
+        <Header />
+
+        <main class="min-h-full mt-10 sm:mt-12">
+          <div class="mx-auto max-w-2xl lg:max-w-none">
+    <div class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-20">
+        <!-- Photo (right column on desktop) -->
+        <div class="lg:pl-20">
+            <div class="relative max-w-xs px-2.5 lg:max-w-none">
+                <div class="aspect-square rotate-3 border border-zinc-400/5 bg-zinc-50 p-1 dark:border-zinc-700/50 dark:bg-zinc-800 dark:shadow-md dark:shadow-zinc-800/5">
+                    <div class="pointer-events-none">
+                        <div class="absolute -right-14 -top-10 h-px w-[400%] bg-gradient-to-l from-slate-400 opacity-20"></div>
+                        <div class="absolute left-full -top-10 ml-14 h-px w-screen bg-zinc-400 opacity-20"></div>
+                        <div class="absolute top-[-135%] bottom-[-65%] -right-12 w-px opacity-20" style="background-image:linear-gradient(to bottom, rgba(148, 163, 184, 0) 30%, rgb(148, 163, 184), rgba(148, 163, 184, 0))"></div>
+                        <div class="absolute -right-28 -bottom-10 h-px w-[400%] opacity-30" style="background-image:linear-gradient(to right, rgba(119, 185, 250, 0) 60%, rgb(119, 185, 250) 77%, rgba(119, 185, 250, 0) 94%)"></div>
+                        <div class="absolute top-[-120%] bottom-[-80%] -left-12 w-px opacity-20" style="background-image:linear-gradient(to bottom, rgba(148, 163, 184, 0) 30%, rgb(148, 163, 184), rgba(148, 163, 184, 0))"></div>
+                        <div class="absolute -top-10 -left-80 mt-[-0.5px] h-0.5 w-28 rounded-full bg-gradient-to-r from-blue-500 animate-pulse"></div>
+                        <div class="absolute -left-12 bottom-8 ml-[-0.5px] h-28 w-0.5 rounded-full bg-gradient-to-t from-violet-400 animate-pulse"></div>
+                    </div>
+                    <Image
+                      src={meImage}
+                      alt="Christian Ludovic"
+                      class="aspect-square relative bg-zinc-50 object-cover dark:bg-zinc-800"
+                      width={800}
+                      height={800}
+                    />
+                </div>
+            </div>
+        </div>
+        <!-- Bio (left column on desktop, first in visual order) -->
+        <div class="relative lg:order-first lg:row-span-2">
+            <div class="z-10">
+                <h1 class="text-4xl font-bold font-heading tracking-tight text-zinc-800 sm:text-5xl lg:leading-none dark:text-zinc-100">
+                    I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">Christian Ludovic</span>,
+                    Software Engineer
+                </h1>
+                <div class="mt-6 space-y-7 leading-[1.65rem] text-base text-zinc-600 dark:text-zinc-400">
+                    <p>
+                        Software engineering student at Gümüşhane University of Technology, available for full-remote internship or part-time job opportunities.
+                    </p>
+                    <p>
+                        I build modern web applications using technologies like
+                        <span class="font-semibold text-zinc-900 dark:text-white">Laravel</span>,
+                        <span class="font-semibold text-zinc-900 dark:text-white">React</span>,
+                        <span class="font-semibold text-zinc-900 dark:text-white">Vue.js</span>,
+                        <span class="font-semibold text-zinc-900 dark:text-white">Next.js</span> and
+                        <span class="font-semibold text-zinc-900 dark:text-white">Tailwind CSS</span>.
+                        I'm passionate about creating elegant user interfaces and delivering great user experiences.
+                    </p>
+                </div>
+                <div class="mt-16 space-y-14">
+                    <!-- Section 01: Education -->
+                    <div>
+                        <h2 class="inline-flex items-center px-4 py-1 text-blue-600 ring-1 ring-inset ring-blue-500" id="education">
+    <span class="font-heading text-sm" aria-hidden="true">
+        01
+    </span>
+    <span class="ml-3 h-3.5 w-px bg-blue-600/50" aria-hidden="true"></span>
+    <span class="ml-3 text-sm font-medium tracking-tight">
+        Education
+    </span>
+</h2>
+                        <div class="mt-6 space-y-5">
+                            <div>
+                                <h3 class="font-heading text-xl leading-normal tracking-tight text-zinc-800 dark:text-zinc-200 sm:text-2xl">
+                                    My Journey
+                                </h3>
+                                <p class="mt-3 leading-7 text-zinc-600 dark:text-zinc-400">
+                                    I obtained a two-year diploma in Electrical Engineering, specializing in Automation and Industrial Computing at
+                                    <a href="https://www.univ-dschang.org/iutfv-bandjoun/" target="_blank" class="ml-0.5 inline-flex items-center gap-1.5 bg-zinc-50 px-1.5 py-1 text-sm leading-4 text-zinc-600 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:text-white dark:ring-zinc-700">
+                                        IUT Fotso Victor
+                                    </a>.
+                                    Then I got my B1 certificate in German at
+                                    <a href="https://www.slz-douala.org/fr/" target="_blank" class="ml-0.5 inline-flex items-center gap-1.5 bg-zinc-50 px-1.5 py-1 text-sm leading-4 text-zinc-600 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:text-white dark:ring-zinc-700">
+                                        SLZ Douala
+                                    </a>.
+                                    I am currently in my third year of Software Engineering at
+                                    <a href="https://www.gumushane.edu.tr/" target="_blank" class="ml-0.5 inline-flex items-center gap-1.5 bg-zinc-50 px-1.5 py-1 text-sm leading-4 text-zinc-600 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:text-white dark:ring-zinc-700">
+                                        Gümüşhane University of Technology
+                                    </a>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Section 02: Aspiration -->
+                    <div>
+                        <h2 class="inline-flex items-center px-4 py-1 text-blue-600 ring-1 ring-inset ring-blue-500" id="aspiration">
+    <span class="font-heading text-sm" aria-hidden="true">
+        02
+    </span>
+    <span class="ml-3 h-3.5 w-px bg-blue-600/50" aria-hidden="true"></span>
+    <span class="ml-3 text-sm font-medium tracking-tight">
+        Aspiration
+    </span>
+</h2>
+                        <div class="mt-6 space-y-4">
+                            <h3 class="font-heading text-xl leading-normal tracking-tight text-zinc-800 dark:text-zinc-200 sm:text-2xl">
+                                What drives me
+                            </h3>
+                            <div class="text-base text-zinc-600 space-y-3 dark:text-zinc-400">
+                                <p>
+                                    I'm driven by a passion for building things that make people's lives easier. I believe in clean code,
+                                    continuous learning, and sharing knowledge with others.
+                                </p>
+                                <div class="isolate overflow-hidden">
+                                    <p>
+                                        Whether it's crafting a pixel-perfect UI or designing a scalable architecture, I pour my heart into every project.
+                                        My goal is to become a well-rounded full-stack engineer who creates impactful digital products.
+                                    </p>
+                                    <div class="mt-12 relative ml-4">
+                                        <svg viewBox="0 0 162 128" fill="none" aria-hidden="true" class="absolute -top-5 left-0 -z-10 h-10 stroke-blue-700 dark:stroke-blue-400">
+                                            <path id="quote-path" d="M65.5697 118.507L65.8918 118.89C68.9503 116.314 71.367 113.253 73.1386 109.71C74.9162 106.155 75.8027 102.28 75.8027 98.0919C75.8027 94.237 75.16 90.6155 73.8708 87.2314C72.5851 83.8565 70.8137 80.9533 68.553 78.5292C66.4529 76.1079 63.9476 74.2482 61.0407 72.9536C58.2795 71.4949 55.276 70.767 52.0386 70.767C48.9935 70.767 46.4686 71.1668 44.4872 71.9924L44.4799 71.9955L44.4726 71.9988C42.7101 72.7999 41.1035 73.6831 39.6544 74.6492C38.2407 75.5916 36.8279 76.455 35.4159 77.2394L35.4047 77.2457L35.3938 77.2525C34.2318 77.9787 32.6713 78.3634 30.6736 78.3634C29.0405 78.3634 27.5131 77.2868 26.1274 74.8257C24.7483 72.2185 24.0519 69.2166 24.0519 65.8071C24.0519 60.0311 25.3782 54.4081 28.0373 48.9335C30.703 43.4454 34.3114 38.345 38.8667 33.6325C43.5812 28.761 49.0045 24.5159 55.1389 20.8979C60.1667 18.0071 65.4966 15.6179 71.1291 13.7305C73.8626 12.8145 75.8027 10.2968 75.8027 7.38572C75.8027 3.6497 72.6341 0.62247 68.8814 1.1527C61.1635 2.2432 53.7398 4.41426 46.6119 7.66522C37.5369 11.6459 29.5729 17.0612 22.7236 23.9105C16.0322 30.6019 10.618 38.4859 6.47981 47.558L6.47976 47.558L6.47682 47.5647C2.4901 56.6544 0.5 66.6148 0.5 77.4391C0.5 84.2996 1.61702 90.7679 3.85425 96.8404L3.8558 96.8445C6.08991 102.749 9.12394 108.02 12.959 112.654L12.959 112.654L12.9646 112.661C16.8027 117.138 21.2829 120.739 26.4034 123.459L26.4033 123.459L26.4144 123.465C31.5505 126.033 37.0873 127.316 43.0178 127.316C47.5035 127.316 51.6783 126.595 55.5376 125.148L55.5376 125.148L55.5477 125.144C59.5516 123.542 63.0052 121.456 65.9019 118.881L65.5697 118.507Z"></path>
+                                            <use href="#quote-path" x="86"></use>
+                                        </svg>
+                                        <blockquote class="text-zinc-700 dark:text-zinc-300">
+                                            Code is not just about solving problems — it's about creating experiences that connect people and ideas.
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom right: Social links + Skills -->
+        <div class="lg:pl-20">
+            <ul role="list" class="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
+                <li class="flex">
+                    <a class="group flex items-center text-sm font-medium transition text-zinc-500 dark:text-zinc-200 hover:text-blue-500" href="https://www.linkedin.com/in/christian-ludovic">
+                        <svg class="size-6 flex-none fill-zinc-500 transition group-hover:fill-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,40V216a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8H216A8,8,0,0,1,224,40Z" opacity="0.2"></path><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path></svg>
+                        <span class="ml-4">Suivre sur LinkedIn</span>
+                    </a>
+                </li>
+                <li class="flex">
+                    <a class="group flex items-center text-sm font-medium transition text-zinc-500 dark:text-zinc-200 hover:text-blue-500" href="https://github.com/chrisx01">
+                        <svg class="size-6 flex-none fill-zinc-500 transition group-hover:fill-blue-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                        <span class="ml-4">Suivre sur Github</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Section 03: Skills -->
+            <div class="mt-8 lg:mt-10">
+                <h2 class="inline-flex items-center px-4 py-1 text-blue-600 ring-1 ring-inset ring-blue-500" id="skills">
+    <span class="font-heading text-sm" aria-hidden="true">
+        03
+    </span>
+    <span class="ml-3 h-3.5 w-px bg-blue-600/50" aria-hidden="true"></span>
+    <span class="ml-3 text-sm font-medium tracking-tight">
+        Compétences
+    </span>
+</h2>
+                <div class="mt-6 space-y-6">
+                    <div>
+                        <h4 class="text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Frontend</h4>
+                        <div class="mt-3 flex flex-wrap items-center gap-3">
+                            <span class="inline-flex items-center gap-1.5 bg-zinc-50 px-2.5 py-1.5 text-sm text-zinc-700 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700">
+                                React
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-zinc-50 px-2.5 py-1.5 text-sm text-zinc-700 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700">
+                                Vue.js
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-zinc-50 px-2.5 py-1.5 text-sm text-zinc-700 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700">
+                                Next.js
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-zinc-50 px-2.5 py-1.5 text-sm text-zinc-700 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700">
+                                Tailwind CSS
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-zinc-50 px-2.5 py-1.5 text-sm text-zinc-700 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700">
+                                Alpine.js
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Backend</h4>
+                        <div class="mt-3 flex flex-wrap items-center gap-3">
+                            <span class="inline-flex items-center gap-1.5 bg-zinc-50 px-2.5 py-1.5 text-sm text-zinc-700 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700">
+                                Laravel
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-zinc-50 px-2.5 py-1.5 text-sm text-zinc-700 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700">
+                                Livewire
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-zinc-50 px-2.5 py-1.5 text-sm text-zinc-700 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700">
+                                PHP
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Tools & Design</h4>
+                        <div class="mt-3 flex flex-wrap items-center gap-3">
+                            <span class="inline-flex items-center gap-1.5 bg-zinc-50 px-2.5 py-1.5 text-sm text-zinc-700 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700">
+                                Shopify
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-zinc-50 px-2.5 py-1.5 text-sm text-zinc-700 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700">
+                                Figma
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-zinc-50 px-2.5 py-1.5 text-sm text-zinc-700 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700">
+                                <svg class="size-4" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M29.4356 13.6638L16.336 0.565802C15.5822 -0.188601 14.3588 -0.188601 13.6041 0.565802L10.8841 3.28605L14.3343 6.73627C15.1364 6.46546 16.0558 6.64703 16.6949 7.28622C17.3372 7.92939 17.5175 8.85659 17.2399 9.66137L20.5653 12.9868C21.3698 12.7095 22.298 12.8886 22.9405 13.5322C23.8386 14.4301 23.8386 15.885 22.9405 16.7831C22.0422 17.6814 20.5873 17.6814 19.6885 16.7831C19.0132 16.1072 18.8462 15.115 19.1882 14.2829L16.0869 11.1816L16.0867 19.3426C16.3056 19.451 16.5123 19.5957 16.6947 19.7774C17.5926 20.6751 17.5926 22.1298 16.6947 23.029C15.7966 23.9268 14.341 23.9268 13.4439 23.029C12.5459 22.1298 12.5459 20.6752 13.4439 19.7774C13.6658 19.5558 13.9226 19.3882 14.1966 19.2758V11.0389C13.9224 10.927 13.666 10.7606 13.4437 10.5372C12.7635 9.85758 12.5997 8.85928 12.9485 8.024L9.54729 4.62224L0.56598 13.6033C-0.18866 14.3583 -0.18866 15.5817 0.56598 16.3362L13.6648 29.4342C14.4189 30.1886 15.642 30.1886 16.3972 29.4342L29.4354 16.3981C30.1898 15.6433 30.1898 14.4195 29.4354 13.6649" fill="#F05133"></path>
+                                </svg>
+                                Git
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact email -->
+            <div class="mt-10 border-t border-zinc-100 pt-10 dark:border-zinc-700/40">
+                <a href="mailto:hello@chrisx01.dev" class="group flex items-center text-sm font-medium text-zinc-800 transition hover:text-blue-500 dark:text-zinc-200">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" class="size-6 flex-none fill-zinc-500 transition group-hover:fill-blue-500">
+                        <path fill-rule="evenodd" d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="ml-4">hello@chrisx01.dev</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+        </main>
+      </div>
+    </div>
+
+    <Footer />
+  </div>
+</BaseLayout>

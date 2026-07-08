@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string
+  href: string
+  date: string
+  dateFormatted: string
+  tag?: string
+  tagHref?: string
+  excerpt: string
+}
+
+const { title, href, date, dateFormatted, tag, tagHref, excerpt } = Astro.props
+---
+
+<article class="max-w-xl">
+  <div class="flex items-center gap-x-4 text-xs">
+    <time datetime={date} class="capitalize text-zinc-500 dark:text-zinc-400">
+      {dateFormatted}
+    </time>
+    {tag && tagHref && (
+      <a href={tagHref} class="relative z-10 bg-zinc-50 px-3 py-1.5 font-medium text-zinc-600 hover:bg-zinc-100 dark:bg-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800/80">
+        {tag}
+      </a>
+    )}
+  </div>
+  <div class="group relative">
+    <h3 class="mt-3 text-lg font-semibold font-heading leading-6 text-zinc-900 group-hover:text-zinc-600 dark:text-white dark:group-hover:text-zinc-300">
+      <a href={href}>
+        <span class="absolute inset-0"></span>
+        {title}
+      </a>
+    </h3>
+    <p class="mt-5 line-clamp-3 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+      {excerpt}
+    </p>
+  </div>
+</article>

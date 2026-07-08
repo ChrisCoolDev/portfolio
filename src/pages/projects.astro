@@ -1,0 +1,121 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const projects = [
+  {
+    title: "QAlive",
+    href: "https://qalive.ink",
+    image: "/projects_images/qaliveThumbnail.png",
+    techStack: "Web Technologies",
+    description:
+      "Interactive Q&A for every event. Engage your audience in real-time.",
+    type: "side-project" as const,
+  },
+  {
+    title: "Connecteur360",
+    href: "https://connecteur360.com",
+    image: "/projects_images/connecteur360Thumbnail.png",
+    techStack: "Web Technologies",
+    description: "Client platform for Connecteur360.",
+    type: "client" as const,
+  },
+  {
+    title: "Calendar",
+    href: "https://calendar-app-4qc0.onrender.com/home",
+    image: "/projects_images/calendarThumbnail.png",
+    techStack: "Laravel, Livewire, Alpine.js, Tailwindcss",
+    description:
+      "Développement d'un calendrier plutôt authentique, qui permet aux utilisateurs de gérer facilement les dates de naissance de leurs proches.",
+    type: "side-project" as const,
+  },
+  {
+    title: "Growk",
+    href: "https://chrisx01.netlify.app",
+    image: "/projects_images/growThumbnail.png",
+    techStack: "Livewire, Alpine.js, Laravel, Tailwindcss",
+    description:
+      "Development of the web application Growk, which serves as a to-do list and helps users better organize their daily lives.",
+    type: "side-project" as const,
+  },
+];
+---
+
+<BaseLayout
+  title="Projets - Christian Ludovic"
+  description="Contributions et réalisations : projets clients, open source et communautaires."
+>
+  <div class="flex flex-col min-h-screen">
+    <div class="w-full max-w-6xl mx-auto px-4 flex-1 sm:px-6 lg:px-8">
+      <div class="w-full pb-24">
+        <Header />
+
+        <main class="min-h-full mt-10 sm:mt-12">
+          <svg
+            class="absolute inset-x-0 top-0 -z-10 h-128 w-full stroke-zinc-200 mask-[radial-gradient(32rem_32rem_at_center,white,transparent)] dark:stroke-white/10"
+            aria-hidden="true"
+          >
+            <defs>
+              <pattern
+                id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84"
+                width="200"
+                height="200"
+                x="50%"
+                y="-1"
+                patternUnits="userSpaceOnUse"
+              >
+                <path d="M.5 200V.5H200" fill="none"></path>
+              </pattern>
+            </defs>
+            <svg
+              x="50%"
+              y="-1"
+              class="overflow-visible fill-zinc-50 dark:fill-zinc-500/20"
+            >
+              <path
+                d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+                stroke-width="0"></path>
+            </svg>
+            <rect
+              width="100%"
+              height="100%"
+              stroke-width="0"
+              fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"></rect>
+          </svg>
+
+          <header class="max-w-2xl">
+            <h1
+              class="font-heading text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+            >
+              Contributions et réalisations
+            </h1>
+            <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+              J'ai travaillé sur des dizaines de projets au fil des années, en
+              mission ou en freelance. Voici quelques-uns que j'ai réalisés ou
+              dans lesquels je suis intervenu.
+            </p>
+          </header>
+
+          <div class="mt-16 sm:mt-20">
+            <ul
+              role="list"
+              class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {
+                projects.map((project) => (
+                  <li>
+                    <ProjectCard {...project} />
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <Footer />
+  </div>
+</BaseLayout>

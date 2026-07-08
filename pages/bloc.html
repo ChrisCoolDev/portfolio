@@ -1,0 +1,1077 @@
+<html lang="fr" class="scroll-smooth" color-theme="light" data-theme="light"><head><style type="text/css">.turbolinks-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}</style>
+    
+    
+    
+    
+
+    
+    
+
+    
+
+            
+        
+    
+    
+    
+
+
+    
+
+  
+  
+  
+    
+    
+
+
+    
+          
+    <!-- Favicon -->
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <link rel="stylesheet" href="https://arthurmonney.me/build/assets/app-Cg9cp_Mq.css"><script type="module" src="https://arthurmonney.me/build/assets/app-CVvLr5sJ.js"></script>
+    <script>
+    window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', (e) => {
+            if (localStorage.theme === 'system') {
+                if (e.matches) {
+                    document.documentElement.classList.add('dark')
+                    document.documentElement.setAttribute('data-theme', 'dark')
+                } else {
+                    document.documentElement.classList.remove('dark')
+                    document.documentElement.setAttribute('data-theme', 'light')
+                }
+            }
+
+            updateThemeAndSchemeColor()
+        })
+
+    function updateTheme() {
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'system'
+        }
+
+        switch (localStorage.theme) {
+            case 'system':
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.classList.add('dark')
+                    document.documentElement.setAttribute('data-theme', 'dark')
+                } else {
+                    document.documentElement.classList.remove('dark')
+                    document.documentElement.setAttribute('data-theme', 'light')
+                }
+
+                document.documentElement.setAttribute('color-theme', 'system')
+                break
+
+            case 'dark':
+                document.documentElement.classList.add('dark')
+                document.documentElement.setAttribute('color-theme', 'dark')
+                document.documentElement.setAttribute('data-theme', 'dark')
+                break
+
+            case 'light':
+                document.documentElement.classList.remove('dark')
+                document.documentElement.setAttribute('color-theme', 'light')
+                document.documentElement.setAttribute('data-theme', 'light')
+                break
+        }
+
+        updateThemeAndSchemeColor()
+    }
+
+    function updateThemeAndSchemeColor() {
+        if (document.documentElement.classList.contains('dark')) {
+            document
+                .querySelector('meta[name="color-scheme"]')
+                .setAttribute('content', 'dark')
+            document
+                .querySelector('meta[name="theme-color"]')
+                .setAttribute('content', '#171923')
+
+            return
+        }
+
+        document
+            .querySelector('meta[name="color-scheme"]')
+            .setAttribute('content', 'light')
+        document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute('content', '#ffffff')
+    }
+
+    updateTheme()
+
+    function toggle() {
+        localStorage.theme = localStorage.theme === 'dark' ? 'light' : 'dark'
+        updateTheme()
+    }
+</script>
+
+    <script src="https://unpkg.com/turbolinks" defer=""></script>
+            <!-- Plausible Analytics -->
+        <script defer="" data-domain="arthurmonney.me" src="https://analytics.universy.app/js/script.outbound-links.js"></script>
+        <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="turbolinks-cache-control" content="no-cache"><title>Blog - Arthur Monney</title><title>Blog - Arthur Monney</title><meta name="author" content="Arthur Monney"><meta name="keywords" content="Arthur Monney, software engineer, backend architecture, Laravel, PHP, Golang, e-commerce, open source, Laravel Shopper, API design, system design, React, TypeScript, AWS, Docker"><meta property="og:title" content="Blog - Arthur Monney"><meta property="og:description" content="Articles techniques sur Laravel, PHP, architecture backend, e-commerce, open source et retours d'expérience par Arthur Monney."><meta name="description" content="Articles techniques sur Laravel, PHP, architecture backend, e-commerce, open source et retours d'expérience par Arthur Monney."><meta property="og:type" content="website"><meta property="og:site_name" content="Arthur Monney"><meta property="og:locale" content="fr_FR"><meta property="og:image" content="https://arthurmonney.me/images/meta-banner.png"><meta property="og:url" content="http://arthurmonney.me/blog"><link rel="canonical" href="http://arthurmonney.me/blog"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@monneyarthur"><meta name="twitter:site" content="@monneyarthur"><meta name="twitter:title" content="Blog - Arthur Monney"><meta name="twitter:description" content="Articles techniques sur Laravel, PHP, architecture backend, e-commerce, open source et retours d'expérience par Arthur Monney."><meta name="twitter:image" content="https://arthurmonney.me/images/meta-banner.png"><link rel="apple-touch-icon" sizes="180x180" href="https://arthurmonney.me/images/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://arthurmonney.me/images/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://arthurmonney.me/images/favicons/favicon-16x16.png"><link rel="manifest" href="https://arthurmonney.me/images/favicons/site.webmanifest"><link rel="mask-icon" href="https://arthurmonney.me/images/favicons/safari-pinned-tab.svg" color="#007AAE"><meta name="msapplication-TileColor" content="#007AAE"><meta name="theme-color" content="#ffffff"><meta name="color-scheme" content="light"><link rel="preload" as="style" href="https://arthurmonney.me/build/assets/app-Cg9cp_Mq.css"><link rel="modulepreload" as="script" href="https://arthurmonney.me/build/assets/app-CVvLr5sJ.js"></head>
+<body class="h-full font-sans antialiased bg-white dark:bg-zinc-900 selection:bg-black selection:text-zinc-300 dark:selection:bg-white/10 dark:selection:text-gray-400">
+    <div class="flex flex-col min-h-screen">
+        <div class="w-full max-w-6xl mx-auto px-4 flex-1 sm:px-6 lg:px-8">
+            <div class="w-full pb-24">
+                <header class="mx-auto max-w-6xl py-8">
+    <div class="flex items-center justify-between">
+        <div class="relative flex flex-1 items-center">
+            <div class="flex flex-1 gap-x-20">
+                <div class="size-10 bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10">
+                    <a href="https://arthurmonney.me" class="block size-full">
+                        <span class="sr-only">Arthur Monney</span>
+                        <img class="size-9 object-cover" src="https://arthurmonney.me/images/me.jpg" alt="Arthur Monney" width="36" height="36">
+                    </a>
+                </div>
+                <nav class="pointer-events-auto hidden md:block">
+                    <ul id="nav" class="flex bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+                        <li class="">
+                            <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/about">
+    A propos
+
+    
+    </a>
+                        </li>
+                        <li class="">
+                            <a class="relative block px-3 py-2 transition text-blue-400" href="https://arthurmonney.me/blog">
+    Blog
+
+    
+            <span class="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0"></span>
+    </a>
+                        </li>
+                        <li class="">
+                            <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/projects">
+    Projets
+
+    
+    </a>
+                        </li>
+                        <li class="">
+                            <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/talks">
+    Talks
+
+    
+    </a>
+                        </li>
+                        <li class="">
+                            <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/uses">
+    Setup
+
+    
+    </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div x-data="{ open: false }" @keydown.window.escape="open = false" class="md:hidden">
+                <button @click="open = true" class="group flex items-center bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20" type="button" aria-expanded="false" id="popover-button">
+                    Menu
+                    <svg viewBox="0 0 8 6" aria-hidden="true" class="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-400">
+                        <path d="M1.75 1.75 4 4.25l2.25-2.5" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+                <div x-show="open" style="display: none;">
+                    <div x-show="open" x-transition:enter="duration-200 ease-out" x-transition:enter-start="scale-95 opacity-0" x-transition:enter-end="scale-100 opacity-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="scale-100 opacity-100" x-transition:leave-end="scale-95 opacity-0" class="fixed inset-x-4 top-8 z-50 origin-top-right transform transition" style="display: none;">
+                        <div class="bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800">
+                            <div class="flex flex-row-reverse items-center justify-between">
+                                <button @click="open = false" aria-label="Close menu" class="-m-1 p-1" type="button">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true" class="size-6 text-zinc-400">
+                                        <path d="m17.25 6.75-10.5 10.5M6.75 6.75l10.5 10.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </button>
+                                <h2 class="text-sm font-medium text-zinc-400">
+                                    Navigation
+                                </h2>
+                            </div>
+                            <nav class="mt-6 divide-y divide-zinc-100 divide-zinc-100/5">
+                                <ul class="pb-6 text-base text-zinc-800 dark:text-zinc-300">
+                                    <li class="-mx-3">
+                                        <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me">
+    Accueil
+
+    
+    </a>
+                                    </li>
+                                    <li class="-mx-3">
+                                        <a class="relative block px-3 py-2 transition text-blue-400" href="https://arthurmonney.me/blog">
+    Blog
+
+    
+            <span class="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0"></span>
+    </a>
+                                    </li>
+                                    <li class="-mx-3">
+                                        <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/about">
+    A propos
+
+    
+    </a>
+                                    </li>
+                                    <li class="-mx-3">
+                                        <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/projects">
+    Projets
+
+    
+    </a>
+                                    </li>
+                                    <li class="-mx-3">
+                                        <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/talks">
+    Talks
+
+    
+    </a>
+                                    </li>
+                                    <li class="-mx-3">
+                                        <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/uses">
+    Setup
+
+    
+    </a>
+                                    </li>
+                                </ul>
+                                <div class="flex-wrap space-x-4 flex items-center pt-6">
+    <a href="https://twitter.com/monneyarthur" class="text-zinc-500 transition hover:text-black dark:hover:text-white">
+        <span class="sr-only">Twitter</span>
+        <svg aria-hidden="true" class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,216H160L48,40H96Z" opacity="0.2"></path><path d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"></path></svg>    </a>
+    <a href="https://www.linkedin.com/in/arthurmonney" class="text-zinc-500 transition hover:text-[#0a66c2]">
+        <span class="sr-only">LinkedIn</span>
+        <svg aria-hidden="true" class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,40V216a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8H216A8,8,0,0,1,224,40Z" opacity="0.2"></path><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path></svg>    </a>
+    <a href="https://github.com/mckenziearts" class="text-zinc-500 transition hover:text-zinc-900 dark:hover:text-[#fafafa]">
+        <span class="sr-only">GitHub</span>
+        <svg class="size-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+</svg>
+    </a>
+    <a href="https://www.youtube.com/@lechretiendev" class="text-zinc-500 transition hover:text-[#FF0000]">
+        <span class="sr-only">YouTube</span>
+        <svg aria-hidden="true" class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M226.59,71.53a16,16,0,0,0-9.63-11C183.48,47.65,128,48,128,48s-55.48-.35-89,12.58a16,16,0,0,0-9.63,11C27.07,80.54,24,98.09,24,128s3.07,47.46,5.41,56.47A16,16,0,0,0,39,195.42C72.52,208.35,128,208,128,208s55.48.35,89-12.58a16,16,0,0,0,9.63-10.95c2.34-9,5.41-26.56,5.41-56.47S228.93,80.54,226.59,71.53ZM112,160V96l48,32Z" opacity="0.2"></path><path d="M164.44,121.34l-48-32A8,8,0,0,0,104,96v64a8,8,0,0,0,12.44,6.66l48-32a8,8,0,0,0,0-13.32ZM120,145.05V111l25.58,17ZM234.33,69.52a24,24,0,0,0-14.49-16.4C185.56,39.88,131,40,128,40s-57.56-.12-91.84,13.12a24,24,0,0,0-14.49,16.4C19.08,79.5,16,97.74,16,128s3.08,48.5,5.67,58.48a24,24,0,0,0,14.49,16.41C69,215.56,120.4,216,127.34,216h1.32c6.94,0,58.37-.44,91.18-13.11a24,24,0,0,0,14.49-16.41c2.59-10,5.67-28.22,5.67-58.48S236.92,79.5,234.33,69.52Zm-15.49,113a8,8,0,0,1-4.77,5.49c-31.65,12.22-85.48,12-86.12,12s-54.37.18-86-12a8,8,0,0,1-4.77-5.49C34.8,173.39,32,156.57,32,128s2.8-45.39,5.16-54.47A8,8,0,0,1,41.93,68C73.58,55.82,127.4,56,128.05,56s54.37-.18,86,12a8,8,0,0,1,4.77,5.49C221.2,82.61,224,99.43,224,128S221.2,173.39,218.84,182.47Z"></path></svg>    </a>
+    <a href="mailto:contact@arthurmonney.me" class="inline-block bg-white/90 px-3 py-2 text-sm font-medium leading-5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+        <span class="sr-only">Adresse E-mail</span>
+        Par Mail
+    </a>
+</div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="fixed inset-0 z-30 bg-zinc-800/40 backdrop-blur-xs dark:bg-black/80"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center">
+            <div class="flex-wrap space-x-4 hidden items-center lg:flex">
+    <a href="https://twitter.com/monneyarthur" class="text-zinc-500 transition hover:text-black dark:hover:text-white">
+        <span class="sr-only">Twitter</span>
+        <svg aria-hidden="true" class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,216H160L48,40H96Z" opacity="0.2"></path><path d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"></path></svg>    </a>
+    <a href="https://www.linkedin.com/in/arthurmonney" class="text-zinc-500 transition hover:text-[#0a66c2]">
+        <span class="sr-only">LinkedIn</span>
+        <svg aria-hidden="true" class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,40V216a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8H216A8,8,0,0,1,224,40Z" opacity="0.2"></path><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path></svg>    </a>
+    <a href="https://github.com/mckenziearts" class="text-zinc-500 transition hover:text-zinc-900 dark:hover:text-[#fafafa]">
+        <span class="sr-only">GitHub</span>
+        <svg class="size-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+</svg>
+    </a>
+    <a href="https://www.youtube.com/@lechretiendev" class="text-zinc-500 transition hover:text-[#FF0000]">
+        <span class="sr-only">YouTube</span>
+        <svg aria-hidden="true" class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M226.59,71.53a16,16,0,0,0-9.63-11C183.48,47.65,128,48,128,48s-55.48-.35-89,12.58a16,16,0,0,0-9.63,11C27.07,80.54,24,98.09,24,128s3.07,47.46,5.41,56.47A16,16,0,0,0,39,195.42C72.52,208.35,128,208,128,208s55.48.35,89-12.58a16,16,0,0,0,9.63-10.95c2.34-9,5.41-26.56,5.41-56.47S228.93,80.54,226.59,71.53ZM112,160V96l48,32Z" opacity="0.2"></path><path d="M164.44,121.34l-48-32A8,8,0,0,0,104,96v64a8,8,0,0,0,12.44,6.66l48-32a8,8,0,0,0,0-13.32ZM120,145.05V111l25.58,17ZM234.33,69.52a24,24,0,0,0-14.49-16.4C185.56,39.88,131,40,128,40s-57.56-.12-91.84,13.12a24,24,0,0,0-14.49,16.4C19.08,79.5,16,97.74,16,128s3.08,48.5,5.67,58.48a24,24,0,0,0,14.49,16.41C69,215.56,120.4,216,127.34,216h1.32c6.94,0,58.37-.44,91.18-13.11a24,24,0,0,0,14.49-16.41c2.59-10,5.67-28.22,5.67-58.48S236.92,79.5,234.33,69.52Zm-15.49,113a8,8,0,0,1-4.77,5.49c-31.65,12.22-85.48,12-86.12,12s-54.37.18-86-12a8,8,0,0,1-4.77-5.49C34.8,173.39,32,156.57,32,128s2.8-45.39,5.16-54.47A8,8,0,0,1,41.93,68C73.58,55.82,127.4,56,128.05,56s54.37-.18,86,12a8,8,0,0,1,4.77,5.49C221.2,82.61,224,99.43,224,128S221.2,173.39,218.84,182.47Z"></path></svg>    </a>
+    <a href="mailto:contact@arthurmonney.me" class="inline-block bg-white/90 px-3 py-2 text-sm font-medium leading-5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+        <span class="sr-only">Adresse E-mail</span>
+        Par Mail
+    </a>
+</div>
+            <div class="pointer-events-auto ml-6">
+                <button onclick="toggle()" type="button" aria-label="Switch to light theme" class="group bg-white/90 p-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20">
+                    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="size-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-yellow-50 [@media(prefers-color-scheme:dark)]:stroke-yellow-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-yellow-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-yellow-600">
+                        <path d="M8 12.25A4.25 4.25 0 0 1 12.25 8v0a4.25 4.25 0 0 1 4.25 4.25v0a4.25 4.25 0 0 1-4.25 4.25v0A4.25 4.25 0 0 1 8 12.25v0Z"></path>
+                        <path d="M12.25 3v1.5M21.5 12.25H20M18.791 18.791l-1.06-1.06M18.791 5.709l-1.06 1.06M12.25 20v1.5M4.5 12.25H3M6.77 6.77 5.709 5.709M6.77 17.73l-1.061 1.061" fill="none"></path>
+                    </svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" class="[@media_not_(prefers-color-scheme:dark)]:fill-blue-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-blue-500 hidden size-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400">
+                        <path d="M17.25 16.22a6.937 6.937 0 0 1-9.47-9.47 7.451 7.451 0 1 0 9.47 9.47ZM12.75 7C17 7 17 2.75 17 2.75S17 7 21.25 7C17 7 17 11.25 17 11.25S17 7 12.75 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+                <main class="min-h-full mt-10 sm:mt-12">
+                    <svg class="absolute inset-x-0 top-0 -z-10 h-128 w-full stroke-zinc-200 mask-[radial-gradient(32rem_32rem_at_center,white,transparent)] dark:stroke-white/10" aria-hidden="true">
+        <defs>
+            <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+                <path d="M.5 200V.5H200" fill="none"></path>
+            </pattern>
+        </defs>
+        <svg x="50%" y="-1" class="overflow-visible fill-zinc-50 dark:fill-zinc-500/20">
+            <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z" stroke-width="0"></path>
+        </svg>
+        <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"></rect>
+    </svg>
+
+    <header class="max-w-2xl">
+        <h1 class="font-heading text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+            J'écris sur la programmation, ma vision de la vie et sur la Foi chrétienne.
+        </h1>
+        <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+            Je partage sur mes expériences en programmation, les projets que je
+            développe. Je donne aussi souvent des tips et conseils pour pouvoir
+            améliorer sa façon de coder, on apprend plus vite en partageant.
+            Aussi, j'écris sur la Foi en Jésus-Christ
+        </p>
+    </header>
+
+    <div class="mt-16 grid gap-x-12 lg:mt-20 lg:grid-cols-3">
+        <div class="flex flex-col gap-16 lg:col-span-2">
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2026-03-07" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            7 mars 2026
+        </time>
+                    <a href="https://arthurmonney.me/tags/laravel" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Laravel
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/static-variable-en-php-un-piege-silencieux-avec-laravel-octane">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">static $variable en PHP : un piège silencieux avec Laravel Octane</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            En PHP classique, une variable static dans une fonction est réinitialisée à chaque requête. Avec Laravel Octane, ce n'est plus le cas : elle persiste dans le worker entre les requêtes. Un pattern courant de memoization peut alors retourner les données d'un utilisateur à un autre, sans aucune erreur visible.
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/static-variable-en-php-un-piege-silencieux-avec-laravel-octane" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                4 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2026-02-11" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            11 février 2026
+        </time>
+                    <a href="https://arthurmonney.me/tags/laravel" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Laravel
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/route-model-binding-et-multi-tenancy-sous-laravel-resoudre-le-conflit-avec-forgetparameter">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">Route model binding et multi-tenancy sous Laravel : résoudre le conflit avec forgetParameter()</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            En travaillant sur une application SaaS multi-tenant, j'ai rencontré un bug que je n'avais jamais rencontré en sur mes projets Laravel. Un TypeError surgit de nulle part après un refactoring qui semblait anodin. En cherchant la cause, je suis tombé sur une méthode que je ne connaissais pas : forgetParameter()
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/route-model-binding-et-multi-tenancy-sous-laravel-resoudre-le-conflit-avec-forgetparameter" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                6 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2025-11-27" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            27 novembre 2025
+        </time>
+                    <a href="https://arthurmonney.me/tags/laravel" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Laravel
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/utiliser-deferrableprovider-pour-differer-le-chargement-de-ses-services">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">Utiliser DeferrableProvider pour différer le chargement de ses services</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            Lors du développement d'une application Laravel, il est courant d'enregistrer des services dans tes service providers pour les rendre disponibles via le conteneur d'injection de dépendances. Cependant, certains services ne devraient pas être chargés au démarrage de l'application.
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/utiliser-deferrableprovider-pour-differer-le-chargement-de-ses-services" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                7 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2025-04-22" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            22 avril 2025
+        </time>
+                    <a href="https://arthurmonney.me/tags/laravel" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Laravel
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/jai-obtenu-la-certification-laravel-senior-developer">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">J’ai obtenu la certification Laravel Senior Developer</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            En avril 2025, j'ai obtenu avec succès la certification officielle de développeur certifié Laravel. Laissez-moi vous parler des raisons qui m'ont poussé à faire cette certification.
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/jai-obtenu-la-certification-laravel-senior-developer" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                5 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2024-09-09" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            9 septembre 2024
+        </time>
+                    <a href="https://arthurmonney.me/tags/personal" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Personal
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/une-nouvelle-aventure-sannonce-je-rejoins-yield-studio">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">Une nouvelle aventure s’annonce: Je rejoins Yield Studio</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            Voici bientôt deux ans que j'ai emménagé en France pour travailler en tant qu'ingénieur logiciel. Et j'ai vraiment pu trouver l'entreprise idéale (voir parfaite) pour monter en compétences
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/une-nouvelle-aventure-sannonce-je-rejoins-yield-studio" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                8 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2023-08-30" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            30 août 2023
+        </time>
+                    <a href="https://arthurmonney.me/tags/community" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Community
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/les-developpeurs-francophones-a-suivre-pour-commencer-la-programmation-en-2023">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">Les développeurs francophones à suivre pour commencer la programmation en 2023 (Partie 1)</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            Vous voulez commencer la programmation en 2023 ? Dans cette article je vous propose des comptes et chaîne à suivre pour pouvoir facilement prendre la programmation par le bon bout.
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/les-developpeurs-francophones-a-suivre-pour-commencer-la-programmation-en-2023" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                8 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2023-08-18" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            18 août 2023
+        </time>
+                    <a href="https://arthurmonney.me/tags/laravel" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Laravel
+</a>
+                    <a href="https://arthurmonney.me/tags/pest" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Pest
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/tester-les-api-sur-laravel-avec-pestphp">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">Tester les API sur Laravel avec PestPHP</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            Quand on met en place une API sur Laravel, la question que nous avons tendance à nous poser est : comment tester cette API ? Aujourd'hui, nous allons voir comment tester une API sur Laravel avec PestPHP.
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/tester-les-api-sur-laravel-avec-pestphp" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                4 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2023-08-16" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            16 août 2023
+        </time>
+                    <a href="https://arthurmonney.me/tags/php" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Php
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/utiliser-les-proprietes-dynamiques-en-php-82">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">Utiliser les propriétés dynamiques en PHP 8.2</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            En tant que développeur PHP, vous avez probablement déjà (sûrement) utilisé les propriétés dynamiques. C'est une fonctionnalité qui existe depuis PHP 5.3
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/utiliser-les-proprietes-dynamiques-en-php-82" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                2 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2023-08-12" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            12 août 2023
+        </time>
+                    <a href="https://arthurmonney.me/tags/personal" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Personal
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/mon-nom-cest-bien-monney">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">Mon nom c'est bien Monney</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            C'est vendredi, bientôt le week-end et donc je fais un petit article pour mettre certaines "petites" choses au clair.
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/mon-nom-cest-bien-monney" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                2 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2023-08-09" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            9 août 2023
+        </time>
+                    <a href="https://arthurmonney.me/tags/laravel" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Laravel
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/comment-est-fait-ce-site">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">Comment est fait ce site</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            Après, je dirai 2 ans à tergiverser sur comment je ferai ce site, niveau design et techno, j’ai fini par me décider et parti sur quelque chose de simple et très précis
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/comment-est-fait-ce-site" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                5 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2023-07-19" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            19 juillet 2023
+        </time>
+                    <a href="https://arthurmonney.me/tags/git" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Git
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/configurer-un-fichier-gitignore-global">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">Configurer un fichier .gitignore global</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            Quand on développe en équipe et que nous avons plusieurs développeurs qui utilisent divers éditeurs de code (IDE), ca nous arrive souvent de rajouter la configuration de notre éditeur dans le fichier gitignore pour que Git n'envoi pas notre fichier de configuration en ligne.
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/configurer-un-fichier-gitignore-global" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                2 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2023-07-07" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            7 juillet 2023
+        </time>
+                    <a href="https://arthurmonney.me/tags/pest" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Pest
+</a>
+                    <a href="https://arthurmonney.me/tags/laravel" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Laravel
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/difference-entre-unit-et-feature-tests">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">Différence entre Unit et Feature Tests</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            Dans cet article, nous allons parler de la différence qu'il y a entre un test unitaire (Unit Test) et un test fonctionnel (Feature Test).
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/difference-entre-unit-et-feature-tests" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                4 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2023-07-03" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            3 juillet 2023
+        </time>
+                    <a href="https://arthurmonney.me/tags/laravel" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Laravel
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/ids-difference-entre-integer-vs-uuid-vs-ulid">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">IDS Différence entre Integer vs UUID vs ULID</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            Les identifiants peuvent être définis de différentes manières. La méthode traditionnelle consiste à utiliser un identifiant sous la forme d'un nombre entier (integer) qui s'incrémente automatiquement
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/ids-difference-entre-integer-vs-uuid-vs-ulid" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                13 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2023-05-15" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            15 mai 2023
+        </time>
+                    <a href="https://arthurmonney.me/tags/php" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Php
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/creer-un-hook-en-php-pour-les-block-try-catch">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">Créer un hook en PHP pour les block try &amp; catch</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            Quand on développe une API ou que l'on souhaite faire une intégration d'une API tier, notre code se retrouve très rapidement avec une suite d'instructions et de block try {} catch() {} pour s'assurer que notre code s'exécutera correctement.
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/creer-un-hook-en-php-pour-les-block-try-catch" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                2 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2022-11-02" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            2 novembre 2022
+        </time>
+                    <a href="https://arthurmonney.me/tags/linux" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Linux
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/comment-installer-et-personnaliser-le-terminal-hyper-sur-ubuntu">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">Comment installer et personnaliser le terminal Hyper sur Ubuntu</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            Salut cher(è) développeur(se), dans cet article nous allons aborder ensemble l'un des aspects souvent néglige par les développeur(se)s mais qui peut avoir son importance quand on veut être plus productif
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/comment-installer-et-personnaliser-le-terminal-hyper-sur-ubuntu" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                5 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                            <article class="group relative flex flex-col items-start">
+    <div class="z-50 flex items-center gap-x-4 text-xs">
+        <time datetime="2022-08-18" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+            18 août 2022
+        </time>
+                    <a href="https://arthurmonney.me/tags/laravel" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Laravel
+</a>
+                    <a href="https://arthurmonney.me/tags/eloquent" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Eloquent
+</a>
+            </div>
+    <div class="mt-1">
+        <h2 class="text-lg font-semibold tracking-tight font-heading text-zinc-800 dark:text-zinc-100">
+            <div class="absolute z-0 transition scale-95 opacity-0 -inset-x-4 -inset-y-6 bg-zinc-50 group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 dark:bg-zinc-800/70"></div>
+            <a href="https://arthurmonney.me/blog/comment-obtenir-lenregistrement-precedent-et-suivant-dans-laravel">
+                <span class="absolute z-20 -inset-x-4 -inset-y-6 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">Comment obtenir l'enregistrement précédent et suivant dans Laravel</span>
+            </a>
+        </h2>
+        <p class="relative z-10 mt-4 text-sm text-zinc-600 dark:text-zinc-300/80">
+            Dans ce tutoriel nous allons apprendre comment obtenir les données ou l'enregistrement suivant / précédent d'un modèle dans une application Laravel.
+        </p>
+        <div class="relative z-10 flex items-center mt-4 text-sm gap-x-2 text-zinc-400 dark:text-zinc-300">
+            <a href="https://arthurmonney.me/blog/comment-obtenir-lenregistrement-precedent-et-suivant-dans-laravel" class="inline-flex items-center font-medium text-blue-500 hover:text-blue-600">
+                Lire l'article
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 ml-1 stroke-current">
+                    <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            /
+            <span>
+                3 min de lecture
+            </span>
+        </div>
+    </div>
+</article>
+                    </div>
+        <aside class="mt-10 hidden pl-10 lg:block">
+            <div class="sticky top-10">
+                <h4 class="text-sm font-medium leading-5 text-zinc-700 dark:text-zinc-200">
+                    Tous les tags
+                </h4>
+                <ul class="mt-4 flex flex-wrap gap-2" role="list">
+                                            <li>
+                            <a href="https://arthurmonney.me/tags/community" class="relative inline-flex items-center gap-x-2 bg-zinc-50 px-3 py-1.5 text-sm font-medium text-zinc-600 hover:bg-zinc-100 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800/80">
+                                <svg class="h-4 w-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 502 502">
+    <circle cx="250.399" cy="91.549" r="58.694" fill="#0080ff"></circle>
+    <path d="m455.861 253.028-54.703-11.411c-18.637-3.904-37.037 4.638-46.765 19.824-9.448-4.853-19.608-9.038-30.415-12.511v-32.529c.022-24.612-20.126-44.738-44.651-44.738h-55.933c-24.655 0-44.716 20.126-44.716 44.738v32.701a197.813 197.813 0 0 0-30.264 12.468c-9.728-15.251-28.15-23.857-46.809-19.953l-54.747 11.411c-24.03 5.026-39.626 28.862-34.6 52.978l13.741 65.64c4.983 24.051 28.84 39.647 52.892 34.621l17.321-3.624c8.671 12.813 20.665 24.569 36.023 34.621 31.989 20.967 74.247 32.529 119.092 32.529 68.617 0 127.721-27.589 154.943-67.215l17.602 3.689c24.03 5.004 47.887-10.57 52.87-34.621l13.762-65.64c5.004-24.116-10.592-47.952-34.643-52.978zM251.305 447.381c-40.51 0-78.475-10.203-106.797-28.862-9.707-6.342-17.753-13.395-24.202-20.945l13.266-2.783c24.073-5.004 39.669-28.84 34.643-52.913l-12.317-59.018a168.52 168.52 0 0 1 22.757-10.138v10.764c0 24.569 20.104 44.695 44.716 44.695h55.933c24.548 0 44.652-20.147 44.652-44.695v-11.325c8.175 2.912 15.854 6.256 22.973 10.052l-12.49 59.687c-4.983 24.073 10.591 47.909 34.664 52.913l13.395 2.804c-24.978 29.574-74.397 49.764-131.193 49.764z" fill="#0080ff"></path>
+    <circle cx="443.954" cy="168.708" r="58.694" fill="#0080ff"></circle>
+    <path d="M70.736 226.172c31.752-6.644 52.029-37.77 45.471-69.501-6.687-31.709-37.749-52.072-69.523-45.428-31.709 6.622-52.072 37.727-45.428 69.458 6.623 31.752 37.728 52.094 69.48 45.471z" fill="#0080ff"></path>
+</svg>
+                                Communauté
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://arthurmonney.me/tags/git" class="relative inline-flex items-center gap-x-2 bg-zinc-50 px-3 py-1.5 text-sm font-medium text-zinc-600 hover:bg-zinc-100 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800/80">
+                                <svg class="h-4 w-auto" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M29.4356 13.6638L16.336 0.565802C15.5822 -0.188601 14.3588 -0.188601 13.6041 0.565802L10.8841 3.28605L14.3343 6.73627C15.1364 6.46546 16.0558 6.64703 16.6949 7.28622C17.3372 7.92939 17.5175 8.85659 17.2399 9.66137L20.5653 12.9868C21.3698 12.7095 22.298 12.8886 22.9405 13.5322C23.8386 14.4301 23.8386 15.885 22.9405 16.7831C22.0422 17.6814 20.5873 17.6814 19.6885 16.7831C19.0132 16.1072 18.8462 15.115 19.1882 14.2829L16.0869 11.1816L16.0867 19.3426C16.3056 19.451 16.5123 19.5957 16.6947 19.7774C17.5926 20.6751 17.5926 22.1298 16.6947 23.029C15.7966 23.9268 14.341 23.9268 13.4439 23.029C12.5459 22.1298 12.5459 20.6752 13.4439 19.7774C13.6658 19.5558 13.9226 19.3882 14.1966 19.2758V11.0389C13.9224 10.927 13.666 10.7606 13.4437 10.5372C12.7635 9.85758 12.5997 8.85928 12.9485 8.024L9.54729 4.62224L0.56598 13.6033C-0.18866 14.3583 -0.18866 15.5817 0.56598 16.3362L13.6648 29.4342C14.4189 30.1886 15.642 30.1886 16.3972 29.4342L29.4354 16.3981C30.1898 15.6433 30.1898 14.4195 29.4354 13.6649" fill="#F05133"></path>
+</svg>
+                                Git
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://arthurmonney.me/tags/eloquent" class="relative inline-flex items-center gap-x-2 bg-zinc-50 px-3 py-1.5 text-sm font-medium text-zinc-600 hover:bg-zinc-100 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800/80">
+                                <svg class="h-4 w-auto" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M30.5171 6.78727C30.5138 6.77329 30.5049 6.76146 30.5005 6.74749C30.4905 6.72276 30.4828 6.69695 30.4695 6.67437C30.4606 6.65932 30.4474 6.64642 30.4363 6.63244C30.4219 6.61416 30.4097 6.59373 30.3931 6.5776C30.3787 6.56363 30.361 6.55395 30.3455 6.54212C30.3278 6.52814 30.3123 6.51309 30.2924 6.50234L24.4861 3.2552C24.3367 3.17133 24.1529 3.17133 24.0035 3.2552L18.1972 6.50234C18.1773 6.51309 18.1618 6.52922 18.144 6.54212C18.1285 6.55395 18.1108 6.56363 18.0964 6.5776C18.0798 6.59373 18.0677 6.61416 18.0533 6.63244C18.0422 6.64642 18.0289 6.65932 18.0201 6.67437C18.0068 6.69695 17.9979 6.72276 17.9891 6.74749C17.9835 6.76039 17.9758 6.77329 17.9725 6.78727C17.9614 6.82705 17.9559 6.86791 17.9559 6.90984V13.0773L13.1171 15.7836V3.71754C13.1171 3.67561 13.1116 3.63475 13.1005 3.59497C13.0972 3.58099 13.0883 3.56916 13.0839 3.55519C13.0739 3.53046 13.0662 3.50465 13.0529 3.48207C13.044 3.46702 13.0308 3.45412 13.0197 3.44014C13.0053 3.42186 12.9931 3.40143 12.9765 3.3853C12.9621 3.37132 12.9444 3.36165 12.9289 3.34982C12.9112 3.33584 12.8957 3.32079 12.8758 3.31004L7.0695 0.0628998C6.92006 -0.0209666 6.73629 -0.0209666 6.58685 0.0628998L0.780574 3.31004C0.760648 3.32079 0.745149 3.33692 0.727437 3.34982C0.711939 3.36165 0.694227 3.37132 0.679836 3.3853C0.66323 3.40143 0.651053 3.42186 0.636662 3.44014C0.625592 3.45412 0.612309 3.46702 0.603452 3.48207C0.590168 3.50465 0.581312 3.53046 0.572455 3.55519C0.56692 3.56809 0.559172 3.58099 0.555851 3.59497C0.544781 3.63475 0.539246 3.67561 0.539246 3.71754V23.0348C0.539246 23.2025 0.632234 23.3584 0.78168 23.4423L12.3953 29.9366C12.4208 29.9505 12.4485 29.9591 12.475 29.9688C12.4872 29.9731 12.4994 29.9806 12.5127 29.9839C12.5536 29.9946 12.5946 30 12.6367 30C12.6787 30 12.7197 29.9946 12.7606 29.9839C12.7717 29.9806 12.7817 29.9742 12.7928 29.971C12.8215 29.9613 12.8503 29.9516 12.8769 29.9376L24.4905 23.4434C24.6411 23.3595 24.733 23.2047 24.733 23.0359V16.8684L30.2968 13.7568C30.4474 13.6729 30.5392 13.5181 30.5392 13.3493V6.90984C30.5337 6.86791 30.5271 6.82705 30.5171 6.78727ZM12.6278 22.4939L7.79792 19.8393L12.8702 17.0028L18.4352 13.8912L23.2695 16.5943L19.7226 18.5608L12.6278 22.4939ZM23.7588 10.429V15.7836L21.7263 14.6471L18.919 13.0773V7.7227L20.9514 8.8592L23.7588 10.429ZM24.2426 4.20461L29.0791 6.90984L24.2426 9.61507L19.406 6.90984L24.2426 4.20461ZM9.33888 17.8942L7.3064 19.0307V7.23671L10.1138 5.6669L12.1463 4.5304V16.3233L9.33888 17.8942ZM6.82264 1.01339L11.6592 3.71862L6.82264 6.42385L1.98611 3.71862L6.82264 1.01339ZM1.49902 4.5304L3.5315 5.6669L6.33888 7.23671V19.8425V19.8436V19.8446C6.33888 19.8629 6.34441 19.8801 6.34662 19.8973C6.34995 19.9199 6.34995 19.9436 6.35659 19.9661V19.9672C6.36212 19.9855 6.37209 20.0027 6.37984 20.0199C6.38869 20.0392 6.39423 20.0607 6.4053 20.079C6.4053 20.079 6.4053 20.0801 6.4064 20.0801C6.41637 20.0962 6.43076 20.1102 6.44294 20.1253C6.45622 20.1425 6.46729 20.1597 6.48279 20.1747L6.48389 20.1758C6.49718 20.1887 6.51489 20.1984 6.53039 20.2102C6.5481 20.2231 6.5636 20.2382 6.58242 20.2489C6.58353 20.2489 6.58353 20.2489 6.58463 20.25C6.58574 20.25 6.58574 20.2511 6.58685 20.2511L12.1485 23.3079V28.7151L1.49902 22.7628V4.5304ZM23.7588 22.7628L13.1127 28.7162V23.3079L20.9968 18.9361L23.7588 17.405V22.7628ZM29.5651 13.0773L24.7263 15.7836V10.429L27.5337 8.8592L29.5662 7.7227V13.0773H29.5651Z" fill="#FF2D20"></path>
+</svg>
+                                Eloquent
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://arthurmonney.me/tags/laravel" class="relative inline-flex items-center gap-x-2 bg-zinc-50 px-3 py-1.5 text-sm font-medium text-zinc-600 hover:bg-zinc-100 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800/80">
+                                <svg class="h-4 w-auto" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M30.5171 6.78727C30.5138 6.77329 30.5049 6.76146 30.5005 6.74749C30.4905 6.72276 30.4828 6.69695 30.4695 6.67437C30.4606 6.65932 30.4474 6.64642 30.4363 6.63244C30.4219 6.61416 30.4097 6.59373 30.3931 6.5776C30.3787 6.56363 30.361 6.55395 30.3455 6.54212C30.3278 6.52814 30.3123 6.51309 30.2924 6.50234L24.4861 3.2552C24.3367 3.17133 24.1529 3.17133 24.0035 3.2552L18.1972 6.50234C18.1773 6.51309 18.1618 6.52922 18.144 6.54212C18.1285 6.55395 18.1108 6.56363 18.0964 6.5776C18.0798 6.59373 18.0677 6.61416 18.0533 6.63244C18.0422 6.64642 18.0289 6.65932 18.0201 6.67437C18.0068 6.69695 17.9979 6.72276 17.9891 6.74749C17.9835 6.76039 17.9758 6.77329 17.9725 6.78727C17.9614 6.82705 17.9559 6.86791 17.9559 6.90984V13.0773L13.1171 15.7836V3.71754C13.1171 3.67561 13.1116 3.63475 13.1005 3.59497C13.0972 3.58099 13.0883 3.56916 13.0839 3.55519C13.0739 3.53046 13.0662 3.50465 13.0529 3.48207C13.044 3.46702 13.0308 3.45412 13.0197 3.44014C13.0053 3.42186 12.9931 3.40143 12.9765 3.3853C12.9621 3.37132 12.9444 3.36165 12.9289 3.34982C12.9112 3.33584 12.8957 3.32079 12.8758 3.31004L7.0695 0.0628998C6.92006 -0.0209666 6.73629 -0.0209666 6.58685 0.0628998L0.780574 3.31004C0.760648 3.32079 0.745149 3.33692 0.727437 3.34982C0.711939 3.36165 0.694227 3.37132 0.679836 3.3853C0.66323 3.40143 0.651053 3.42186 0.636662 3.44014C0.625592 3.45412 0.612309 3.46702 0.603452 3.48207C0.590168 3.50465 0.581312 3.53046 0.572455 3.55519C0.56692 3.56809 0.559172 3.58099 0.555851 3.59497C0.544781 3.63475 0.539246 3.67561 0.539246 3.71754V23.0348C0.539246 23.2025 0.632234 23.3584 0.78168 23.4423L12.3953 29.9366C12.4208 29.9505 12.4485 29.9591 12.475 29.9688C12.4872 29.9731 12.4994 29.9806 12.5127 29.9839C12.5536 29.9946 12.5946 30 12.6367 30C12.6787 30 12.7197 29.9946 12.7606 29.9839C12.7717 29.9806 12.7817 29.9742 12.7928 29.971C12.8215 29.9613 12.8503 29.9516 12.8769 29.9376L24.4905 23.4434C24.6411 23.3595 24.733 23.2047 24.733 23.0359V16.8684L30.2968 13.7568C30.4474 13.6729 30.5392 13.5181 30.5392 13.3493V6.90984C30.5337 6.86791 30.5271 6.82705 30.5171 6.78727ZM12.6278 22.4939L7.79792 19.8393L12.8702 17.0028L18.4352 13.8912L23.2695 16.5943L19.7226 18.5608L12.6278 22.4939ZM23.7588 10.429V15.7836L21.7263 14.6471L18.919 13.0773V7.7227L20.9514 8.8592L23.7588 10.429ZM24.2426 4.20461L29.0791 6.90984L24.2426 9.61507L19.406 6.90984L24.2426 4.20461ZM9.33888 17.8942L7.3064 19.0307V7.23671L10.1138 5.6669L12.1463 4.5304V16.3233L9.33888 17.8942ZM6.82264 1.01339L11.6592 3.71862L6.82264 6.42385L1.98611 3.71862L6.82264 1.01339ZM1.49902 4.5304L3.5315 5.6669L6.33888 7.23671V19.8425V19.8436V19.8446C6.33888 19.8629 6.34441 19.8801 6.34662 19.8973C6.34995 19.9199 6.34995 19.9436 6.35659 19.9661V19.9672C6.36212 19.9855 6.37209 20.0027 6.37984 20.0199C6.38869 20.0392 6.39423 20.0607 6.4053 20.079C6.4053 20.079 6.4053 20.0801 6.4064 20.0801C6.41637 20.0962 6.43076 20.1102 6.44294 20.1253C6.45622 20.1425 6.46729 20.1597 6.48279 20.1747L6.48389 20.1758C6.49718 20.1887 6.51489 20.1984 6.53039 20.2102C6.5481 20.2231 6.5636 20.2382 6.58242 20.2489C6.58353 20.2489 6.58353 20.2489 6.58463 20.25C6.58574 20.25 6.58574 20.2511 6.58685 20.2511L12.1485 23.3079V28.7151L1.49902 22.7628V4.5304ZM23.7588 22.7628L13.1127 28.7162V23.3079L20.9968 18.9361L23.7588 17.405V22.7628ZM29.5651 13.0773L24.7263 15.7836V10.429L27.5337 8.8592L29.5662 7.7227V13.0773H29.5651Z" fill="#FF2D20"></path>
+</svg>
+                                Laravel
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://arthurmonney.me/tags/php" class="relative inline-flex items-center gap-x-2 bg-zinc-50 px-3 py-1.5 text-sm font-medium text-zinc-600 hover:bg-zinc-100 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800/80">
+                                <svg class="h-4 w-auto" viewBox="0 0 56 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_7613_760)">
+        <mask id="mask0_7613_760" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="56" height="30">
+            <path d="M0.787399 15.0001C0.787399 22.8524 12.9711 29.218 28 29.218C43.0288 29.218 55.2126 22.8524 55.2126 15.0001C55.2126 7.14791 43.0288 0.782158 28 0.782158C12.9711 0.782158 0.787399 7.14791 0.787399 15.0001Z" fill="white"></path>
+        </mask>
+        <g mask="url(#mask0_7613_760)">
+            <path d="M0.787399 15.0001C0.787399 22.8524 12.9711 29.218 28 29.218C43.0288 29.218 55.2126 22.8524 55.2126 15.0001C55.2126 7.14791 43.0288 0.782158 28 0.782158C12.9711 0.782158 0.787399 7.14791 0.787399 15.0001Z" fill="url(#paint0_radial_7613_760)"></path>
+        </g>
+        <mask id="mask1_7613_760" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="-1" y="-1" width="58" height="32">
+            <path d="M-0.346451 -0.836911H56.3464V30.8369H-0.346451V-0.836911Z" fill="white"></path>
+        </mask>
+        <g mask="url(#mask1_7613_760)">
+            <path d="M28 28.1624C42.4418 28.1624 54.1495 22.2694 54.1495 15C54.1495 7.73078 42.4418 1.83769 28 1.83769C13.5582 1.83769 1.8504 7.73078 1.8504 15C1.8504 22.2694 13.5582 28.1624 28 28.1624Z" fill="#777BB3"></path>
+        </g>
+        <mask id="mask2_7613_760" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="-1" y="-1" width="58" height="32">
+            <path d="M-0.346451 -0.836911H56.3464V30.8369H-0.346451V-0.836911Z" fill="white"></path>
+        </mask>
+        <g mask="url(#mask2_7613_760)">
+            <path d="M15.5723 16.632C16.7598 16.632 17.6463 16.4145 18.2072 15.9857C18.7621 15.5613 19.1454 14.8261 19.3463 13.8005C19.5336 12.8419 19.4622 12.1725 19.1343 11.8113C18.7989 11.4424 18.0739 11.2552 16.9794 11.2552H15.0817L14.0296 16.632H15.5723ZM9.36528 23.2551C9.27719 23.2551 9.19353 23.216 9.13752 23.1484C9.08142 23.0808 9.05868 22.9919 9.07551 22.9059L11.8637 8.6575C11.8907 8.51976 12.0122 8.42024 12.1536 8.42024H18.1628C20.0514 8.42024 21.4571 8.92957 22.3406 9.93423C23.2289 10.9442 23.5032 12.3559 23.1559 14.1301C23.0146 14.853 22.7715 15.5243 22.4334 16.1253C22.0949 16.727 21.6475 17.2837 21.1035 17.7803C20.4524 18.3857 19.7154 18.8246 18.915 19.0829C18.1273 19.3377 17.1157 19.467 15.9083 19.467H13.475L12.7801 23.0178C12.7532 23.1556 12.6317 23.2551 12.4904 23.2551H9.36528Z" fill="black"></path>
+            <path d="M15.3251 11.5485H16.9795C18.3004 11.5485 18.7593 11.8364 18.9152 12.0079C19.1738 12.2928 19.2227 12.8934 19.0564 13.7448C18.8696 14.6979 18.5234 15.3738 18.0271 15.7533C17.519 16.1417 16.693 16.3386 15.5723 16.3386H14.3878L15.3251 11.5485ZM18.1628 8.1269H12.1535C11.8708 8.1269 11.6278 8.32594 11.5739 8.60152L8.78567 22.85C8.75201 23.0219 8.79748 23.1997 8.90959 23.3349C9.0218 23.4701 9.18892 23.5483 9.3653 23.5483H12.4903C12.7731 23.5483 13.0161 23.3493 13.07 23.0737L13.7184 19.7602H15.9083C17.1467 19.7602 18.1892 19.6261 19.0066 19.3616C19.8473 19.0903 20.6207 18.6304 21.3052 17.9946C21.8714 17.4772 22.3377 16.8965 22.6911 16.2684C23.0445 15.6401 23.2984 14.9395 23.4458 14.186C23.8114 12.3184 23.5144 10.8229 22.563 9.74129C21.6209 8.67005 20.1404 8.1269 18.1628 8.1269ZM13.6714 16.9252H15.5723C16.8322 16.9252 17.7707 16.6895 18.3873 16.218C19.0041 15.7464 19.42 14.9594 19.6361 13.8564C19.8429 12.7975 19.7487 12.0503 19.3536 11.6149C18.9579 11.1796 18.1667 10.9619 16.9795 10.9619H14.8383L13.6714 16.9252ZM18.1628 8.71345C19.9706 8.71345 21.2894 9.18465 22.1183 10.1271C22.9472 11.0696 23.1968 12.3852 22.8661 14.0742C22.7299 14.7699 22.4997 15.406 22.1756 15.9823C21.8511 16.559 21.4274 17.0863 20.9038 17.5644C20.2797 18.1444 19.5865 18.5578 18.8237 18.8039C18.061 19.0508 17.0894 19.1736 15.9083 19.1736H13.2315L12.4903 22.9618H9.3653L12.1535 8.71345H18.1628Z" fill="white"></path>
+            <path d="M30.3211 19.467C30.2329 19.467 30.1494 19.4279 30.0934 19.3603C30.0372 19.2927 30.0144 19.2039 30.0313 19.1178L31.2646 12.8135C31.3819 12.2139 31.353 11.7836 31.1832 11.6018C31.0793 11.4906 30.7671 11.3042 29.844 11.3042H27.6095L26.0588 19.2297C26.0319 19.3675 25.9103 19.467 25.769 19.467H22.6686C22.5804 19.467 22.4968 19.4279 22.4407 19.3603C22.3846 19.2927 22.3619 19.2038 22.3787 19.1178L25.1669 4.86942C25.1939 4.73168 25.3154 4.63216 25.4568 4.63216H28.5571C28.6453 4.63216 28.7289 4.67126 28.785 4.73881C28.8411 4.80646 28.8638 4.89532 28.847 4.98135L28.1742 8.42031H30.5779C32.4091 8.42031 33.6508 8.74096 34.3741 9.40063C35.1113 10.0736 35.3413 11.1496 35.0578 12.5992L33.7606 19.2297C33.7336 19.3675 33.6122 19.467 33.4707 19.467H30.3211Z" fill="black"></path>
+            <path d="M28.5571 4.33882H25.4568C25.174 4.33882 24.931 4.53785 24.877 4.81343L22.0888 19.0619C22.0552 19.2338 22.1007 19.4116 22.2129 19.5468C22.3251 19.682 22.4922 19.7603 22.6686 19.7603H25.769C26.0516 19.7603 26.2947 19.5612 26.3487 19.2856L27.8529 11.5974H29.844C30.7655 11.5974 30.9589 11.7929 30.9667 11.8013C31.0226 11.8611 31.0961 12.1377 30.9748 12.7575L29.7414 19.0619C29.7077 19.2338 29.7532 19.4116 29.8654 19.5468C29.9776 19.682 30.1447 19.7603 30.3211 19.7603H33.4707C33.7534 19.7603 33.9965 19.5612 34.0504 19.2856L35.3476 12.6552C35.652 11.0987 35.3916 9.9312 34.5739 9.18472C33.7936 8.47293 32.4865 8.12697 30.5779 8.12697H28.5322L29.1369 5.0373C29.1704 4.86535 29.1251 4.68742 29.0129 4.55232C28.9006 4.41712 28.7335 4.33882 28.5571 4.33882ZM28.5571 4.92537L27.8159 8.71352H30.5779C32.3158 8.71352 33.5145 9.01481 34.1743 9.61661C34.834 10.2188 35.0316 11.1945 34.768 12.5433L33.4707 19.1737H30.3211L31.5545 12.8694C31.6948 12.1523 31.6433 11.6631 31.3996 11.4023C31.1558 11.1415 30.6372 11.0108 29.844 11.0108H27.366L25.769 19.1737H22.6686L25.4568 4.92537H28.5571Z" fill="white"></path>
+            <path d="M39.9635 16.632C41.151 16.632 42.0375 16.4145 42.5984 15.9857C43.1534 15.5614 43.5366 14.8262 43.7376 13.8005C43.9249 12.8419 43.8535 12.1725 43.5255 11.8113C43.1902 11.4424 42.4652 11.2552 41.3707 11.2552H39.4729L38.4209 16.632H39.9635ZM33.7566 23.2551C33.6685 23.2551 33.5849 23.216 33.5289 23.1484C33.4728 23.0808 33.4499 22.9919 33.4668 22.9059L36.2549 8.6575C36.282 8.51976 36.4035 8.42024 36.5449 8.42024H42.554C44.4427 8.42024 45.8483 8.92957 46.732 9.93423C47.6203 10.9441 47.8945 12.3558 47.5472 14.1301C47.4057 14.853 47.1627 15.5243 46.8246 16.1253C46.4861 16.727 46.0388 17.2837 45.4948 17.7803C44.8436 18.3857 44.1066 18.8246 43.3062 19.0829C42.5185 19.3377 41.5069 19.467 40.2995 19.467H37.8662L37.1716 23.0178C37.1445 23.1556 37.023 23.2551 36.8816 23.2551H33.7566Z" fill="black"></path>
+            <path d="M39.7164 11.5485H41.3707C42.6917 11.5485 43.1505 11.8364 43.3064 12.0079C43.5652 12.2928 43.614 12.8934 43.4477 13.7447C43.2609 14.698 42.9145 15.3738 42.4183 15.7533C41.9103 16.1417 41.0843 16.3386 39.9635 16.3386H38.7792L39.7164 11.5485ZM42.5541 8.1269H36.5448C36.2621 8.1269 36.0191 8.32594 35.9652 8.60152L33.177 22.85C33.1434 23.0219 33.1888 23.1997 33.3009 23.3349C33.4131 23.4701 33.5803 23.5483 33.7566 23.5483H36.8816C37.1643 23.5483 37.4074 23.3493 37.4614 23.0737L38.1097 19.7602H40.2995C41.5379 19.7602 42.5804 19.6261 43.3979 19.3616C44.2385 19.0903 45.0121 18.6303 45.6967 17.9944C46.2628 17.4771 46.729 16.8965 47.0823 16.2684C47.4357 15.6401 47.6897 14.9395 47.837 14.186C48.2027 12.3183 47.9056 10.8228 46.9543 9.74119C46.0121 8.67005 44.5317 8.1269 42.5541 8.1269ZM38.0627 16.9252H39.9635C41.2235 16.9252 42.1619 16.6895 42.7786 16.218C43.3954 15.7464 43.8112 14.9594 44.0274 13.8564C44.2343 12.7975 44.1401 12.0503 43.7448 11.6149C43.3491 11.1796 42.5579 10.9619 41.3707 10.9619H39.2296L38.0627 16.9252ZM42.5541 8.71345C44.3618 8.71345 45.6806 9.18465 46.5096 10.1271C47.3385 11.0696 47.588 12.3852 47.2573 14.0742C47.1212 14.7699 46.891 15.406 46.5669 15.9823C46.2423 16.559 45.8186 17.0863 45.295 17.5644C44.671 18.1444 43.9778 18.5578 43.215 18.8039C42.4522 19.0508 41.4806 19.1736 40.2995 19.1736H37.6228L36.8816 22.9618H33.7566L36.5448 8.71345H42.5541Z" fill="white"></path>
+        </g>
+    </g>
+    <defs>
+        <radialGradient id="paint0_radial_7613_760" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(17.126 5.78074) scale(35.734 35.4921)">
+            <stop stop-color="#AEB2D5"></stop>
+            <stop offset="0.3" stop-color="#AEB2D5"></stop>
+            <stop offset="0.75" stop-color="#484C89"></stop>
+            <stop offset="1" stop-color="#484C89"></stop>
+        </radialGradient>
+        <clipPath id="clip0_7613_760">
+            <rect width="56" height="30" fill="white"></rect>
+        </clipPath>
+    </defs>
+</svg>
+                                PHP
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://arthurmonney.me/tags/linux" class="relative inline-flex items-center gap-x-2 bg-zinc-50 px-3 py-1.5 text-sm font-medium text-zinc-600 hover:bg-zinc-100 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800/80">
+                                <svg class="h-4 w-auto" viewBox="0 0 128 128" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <rect fill="none" height="119.53" width="119.53" x="4.24" y="4.24"></rect>
+        <g>
+            <path d="M109.01,28.64L71.28,6.24C69.03,4.91,66.51,4.24,64,4.24s-5.03,0.67-7.28,2.01l-37.74,22.4 c-4.5,2.67-7.28,7.61-7.28,12.96v44.8c0,5.35,2.77,10.29,7.28,12.96l37.73,22.4c2.25,1.34,4.76,2,7.28,2c2.51,0,5.03-0.67,7.28-2 l37.74-22.4c4.5-2.67,7.28-7.62,7.28-12.96V41.6C116.29,36.26,113.52,31.31,109.01,28.64z M79.79,98.59l0.06,3.22 c0,0.39-0.25,0.83-0.55,0.99l-1.91,1.1c-0.3,0.15-0.56-0.03-0.56-0.42l-0.03-3.17c-1.63,0.68-3.29,0.84-4.34,0.42 c-0.2-0.08-0.29-0.37-0.21-0.71l0.69-2.91c0.06-0.23,0.18-0.46,0.34-0.6c0.06-0.06,0.12-0.1,0.18-0.13 c0.11-0.06,0.22-0.07,0.31-0.03c1.14,0.38,2.59,0.2,3.99-0.5c1.78-0.9,2.97-2.72,2.95-4.52c-0.02-1.64-0.9-2.31-3.05-2.33 c-2.74,0.01-5.3-0.53-5.34-4.57c-0.03-3.32,1.69-6.78,4.43-8.96l-0.03-3.25c0-0.4,0.24-0.84,0.55-1l1.85-1.18 c0.3-0.15,0.56,0.04,0.56,0.43l0.03,3.25c1.36-0.54,2.54-0.69,3.61-0.44c0.23,0.06,0.34,0.38,0.24,0.75l-0.72,2.88 c-0.06,0.22-0.18,0.44-0.33,0.58c-0.06,0.06-0.13,0.11-0.19,0.14c-0.1,0.05-0.19,0.06-0.28,0.05c-0.49-0.11-1.65-0.36-3.48,0.56 c-1.92,0.97-2.59,2.64-2.58,3.88c0.02,1.48,0.77,1.93,3.39,1.97c3.49,0.06,4.99,1.58,5.03,5.09 C84.45,92.62,82.61,96.33,79.79,98.59z M106.13,38.09l-35.7,22.05c-4.45,2.6-7.73,5.52-7.74,10.89v43.99 c0,3.21,1.3,5.29,3.29,5.9c-0.65,0.11-1.32,0.19-1.98,0.19c-2.09,0-4.15-0.57-5.96-1.64l-37.73-22.4 c-3.69-2.19-5.98-6.28-5.98-10.67V41.6c0-4.39,2.29-8.48,5.98-10.67l37.74-22.4c1.81-1.07,3.87-1.64,5.96-1.64 s4.15,0.57,5.96,1.64l37.74,22.4c3.11,1.85,5.21,5.04,5.8,8.63C112.24,36.89,109.42,36.17,106.13,38.09z"></path>
+            <path d="M99.12,90.73l-9.4,5.62c-0.25,0.15-0.43,0.31-0.43,0.61v2.46c0,0.3,0.2,0.43,0.45,0.28l9.54-5.8 c0.25-0.15,0.29-0.42,0.29-0.72v-2.17C99.57,90.71,99.37,90.59,99.12,90.73z" fill="#4FA847"></path>
+        </g>
+    </g>
+</svg>
+                                Linux
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://arthurmonney.me/tags/pest" class="relative inline-flex items-center gap-x-2 bg-zinc-50 px-3 py-1.5 text-sm font-medium text-zinc-600 hover:bg-zinc-100 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800/80">
+                                <svg class="h-4 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 204">
+    <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="-966.0548" y1="129.9631" x2="-965.0548" y2="129.9631" gradientTransform="matrix(869.3333 52.7991 232.9371 -197.0489 809467.9375 76685.5547)">
+        <stop offset="0" stop-color="#64e6ae"></stop>
+        <stop offset="0.1" stop-color="#64e6ae"></stop>
+        <stop offset="0.3" stop-color="#4ed4ff"></stop>
+        <stop offset="0.7" stop-color="#f471b5"></stop>
+        <stop offset="1" stop-color="#f471b5"></stop>
+    </linearGradient>
+    <path fill="url(#a)" d="M227.3,57.9C232.9,26,211.6,0,179.8,0h-144L25.6,57.9h144l-3.4,19.3h-144L0,204h57.6l12.1-69h86.4 c31.8,0,62.2-26,67.8-57.9L227.3,57.9z M396.6,77.8H243.5l-9,48.4h153L396.6,77.8z M458.2,0H256.6l-10.2,58h201.7L458.2,0z M220.8,204h201.7l10.1-58H231L220.8,204z M535,0c-31.4,0-61.7,26.5-67.8,58l-1.7,9.7h0.1c-3.9,30.8,16.7,57,47.6,57h86.4l-3.8,21.3 h-144l-10.2,58h144c31.8,0,62.2-26,67.8-58l3.7-21.3c5.6-32-15.7-58-47.5-58h-86.4l1.5-8.7h192.1l-25.6,146H749l25.6-146h57.6 C864,58,894.4,32,900,0H535z"></path>
+</svg>
+                                Pest
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://arthurmonney.me/tags/personal" class="relative inline-flex items-center gap-x-2 bg-zinc-50 px-3 py-1.5 text-sm font-medium text-zinc-600 hover:bg-zinc-100 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800/80">
+                                <svg class="h-4 w-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="10" cy="6" r="4" stroke="#1C274C" stroke-width="1.5"></circle>
+    <path d="M19 2C19 2 21 3.2 21 6C21 8.8 19 10 19 10" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
+    <path d="M17 4C17 4 18 4.6 18 6C18 7.4 17 8 17 8" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
+    <path d="M17.9975 18C18 17.8358 18 17.669 18 17.5C18 15.0147 14.4183 13 10 13C5.58172 13 2 15.0147 2 17.5C2 19.9853 2 22 10 22C12.231 22 13.8398 21.8433 15 21.5634" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
+</svg>
+                                Personnel
+                            </a>
+                        </li>
+                                    </ul>
+            </div>
+        </aside>
+    </div>
+                </main>
+            </div>
+        </div>
+
+        <footer class="lg:pb-10" aria-labelledby="Pied de page">
+    <div class="relative bg-gray-50 max-w-6xl mx-auto py-10 px-4 sm:px-6 lg:px-8 dark:bg-zinc-800">
+        <div class="space-y-4 items-center justify-between sm:flex sm:space-y-0">
+            <div>
+                <p class="text-sm text-zinc-900 font-medium sm:mt-0 dark:text-white">
+                    © Arthur Monney 2026. Tous droits reservés.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-sm text-zinc-700 dark:text-zinc-300">
+                    <a class="transition hover:text-zinc-900 dark:hover:text-white" href="https://arthurmonney.me">
+                        Accueil
+                    </a>
+                    <span class="text-blue-400">✦</span>
+                    <a class="transition hover:text-zinc-900 dark:hover:text-white" href="https://arthurmonney.me/about">
+                        A propos
+                    </a>
+                    <span class="text-blue-400">✦</span>
+                    <a class="transition hover:text-zinc-900 dark:hover:text-white" href="https://arthurmonney.me/blog">
+                        Blog
+                    </a>
+                    <span class="text-blue-400">✦</span>
+                    <a class="transition hover:text-zinc-900 dark:hover:text-white" href="https://arthurmonney.me/projects">
+                        Projets
+                    </a>
+                    <span class="text-blue-400">✦</span>
+                    <a class="transition hover:text-zinc-900 dark:hover:text-white" href="https://arthurmonney.me/talks">
+                        Talks
+                    </a>
+                    <span class="text-blue-400">✦</span>
+                    <a class="transition hover:text-zinc-900 dark:hover:text-white" href="https://arthurmonney.me/uses">
+                        Setup
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    </div>
+
+
+
+</body></html>

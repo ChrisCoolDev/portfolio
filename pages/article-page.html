@@ -1,0 +1,543 @@
+<html lang="fr" class="scroll-smooth" color-theme="light" data-theme="light"><head><style type="text/css">.turbolinks-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}</style>
+    
+    
+    
+    
+
+    
+    
+
+    
+
+            
+        
+    
+    
+    
+
+
+    
+
+  
+  
+  
+    
+    
+
+
+    
+          
+    <!-- Favicon -->
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <link rel="stylesheet" href="https://arthurmonney.me/build/assets/app-Cg9cp_Mq.css"><script type="module" src="https://arthurmonney.me/build/assets/app-CVvLr5sJ.js"></script>
+    <script>
+    window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', (e) => {
+            if (localStorage.theme === 'system') {
+                if (e.matches) {
+                    document.documentElement.classList.add('dark')
+                    document.documentElement.setAttribute('data-theme', 'dark')
+                } else {
+                    document.documentElement.classList.remove('dark')
+                    document.documentElement.setAttribute('data-theme', 'light')
+                }
+            }
+
+            updateThemeAndSchemeColor()
+        })
+
+    function updateTheme() {
+        if (!('theme' in localStorage)) {
+            localStorage.theme = 'system'
+        }
+
+        switch (localStorage.theme) {
+            case 'system':
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.classList.add('dark')
+                    document.documentElement.setAttribute('data-theme', 'dark')
+                } else {
+                    document.documentElement.classList.remove('dark')
+                    document.documentElement.setAttribute('data-theme', 'light')
+                }
+
+                document.documentElement.setAttribute('color-theme', 'system')
+                break
+
+            case 'dark':
+                document.documentElement.classList.add('dark')
+                document.documentElement.setAttribute('color-theme', 'dark')
+                document.documentElement.setAttribute('data-theme', 'dark')
+                break
+
+            case 'light':
+                document.documentElement.classList.remove('dark')
+                document.documentElement.setAttribute('color-theme', 'light')
+                document.documentElement.setAttribute('data-theme', 'light')
+                break
+        }
+
+        updateThemeAndSchemeColor()
+    }
+
+    function updateThemeAndSchemeColor() {
+        if (document.documentElement.classList.contains('dark')) {
+            document
+                .querySelector('meta[name="color-scheme"]')
+                .setAttribute('content', 'dark')
+            document
+                .querySelector('meta[name="theme-color"]')
+                .setAttribute('content', '#171923')
+
+            return
+        }
+
+        document
+            .querySelector('meta[name="color-scheme"]')
+            .setAttribute('content', 'light')
+        document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute('content', '#ffffff')
+    }
+
+    updateTheme()
+
+    function toggle() {
+        localStorage.theme = localStorage.theme === 'dark' ? 'light' : 'dark'
+        updateTheme()
+    }
+</script>
+
+    <script src="https://unpkg.com/turbolinks" defer=""></script>
+            <!-- Plausible Analytics -->
+        <script defer="" data-domain="arthurmonney.me" src="https://analytics.universy.app/js/script.outbound-links.js"></script>
+        <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="turbolinks-cache-control" content="no-cache"><title>static $variable en PHP : un piège silencieux avec Laravel Octane</title><title>static $variable en PHP : un piège silencieux avec Laravel Octane</title><meta name="author" content="Arthur Monney"><meta name="keywords" content="Arthur Monney, software engineer, backend architecture, Laravel, PHP, Golang, e-commerce, open source, Laravel Shopper, API design, system design, React, TypeScript, AWS, Docker"><meta property="og:title" content="static $variable en PHP : un piège silencieux avec Laravel Octane"><meta property="og:description" content="En PHP classique, une variable static dans une fonction est réinitialisée à chaque requête. Avec Laravel Octane, ce n'est plus le cas : elle persiste dans le worker entre les requêtes. Un pattern courant de memoization peut alors retourner les données d'un utilisateur à un autre, sans aucune erreur visible."><meta name="description" content="En PHP classique, une variable static dans une fonction est réinitialisée à chaque requête. Avec Laravel Octane, ce n'est plus le cas : elle persiste dans le worker entre les requêtes. Un pattern courant de memoization peut alors retourner les données d'un utilisateur à un autre, sans aucune erreur visible."><meta property="og:type" content="website"><meta property="og:site_name" content="Arthur Monney"><meta property="og:locale" content="fr_FR"><meta property="og:image" content="https://res.cloudinary.com/mckenziearts/image/upload/f_auto,q_auto/v1772884616/laravel-octane_b7otuq.jpg"><meta property="og:url" content="http://arthurmonney.me/blog/static-variable-en-php-un-piege-silencieux-avec-laravel-octane"><link rel="canonical" href="http://arthurmonney.me/blog/static-variable-en-php-un-piege-silencieux-avec-laravel-octane"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@monneyarthur"><meta name="twitter:site" content="@monneyarthur"><meta name="twitter:title" content="static $variable en PHP : un piège silencieux avec Laravel Octane"><meta name="twitter:description" content="En PHP classique, une variable static dans une fonction est réinitialisée à chaque requête. Avec Laravel Octane, ce n'est plus le cas : elle persiste dans le worker entre les requêtes. Un pattern courant de memoization peut alors retourner les données d'un utilisateur à un autre, sans aucune erreur visible."><meta name="twitter:image" content="https://res.cloudinary.com/mckenziearts/image/upload/f_auto,q_auto/v1772884616/laravel-octane_b7otuq.jpg"><link rel="apple-touch-icon" sizes="180x180" href="https://arthurmonney.me/images/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://arthurmonney.me/images/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://arthurmonney.me/images/favicons/favicon-16x16.png"><link rel="manifest" href="https://arthurmonney.me/images/favicons/site.webmanifest"><link rel="mask-icon" href="https://arthurmonney.me/images/favicons/safari-pinned-tab.svg" color="#007AAE"><meta name="msapplication-TileColor" content="#007AAE"><meta name="theme-color" content="#ffffff"><meta name="color-scheme" content="light"><link rel="preload" as="style" href="https://arthurmonney.me/build/assets/app-Cg9cp_Mq.css"><link rel="modulepreload" as="script" href="https://arthurmonney.me/build/assets/app-CVvLr5sJ.js"></head>
+<body class="h-full font-sans antialiased bg-white dark:bg-zinc-900 selection:bg-black selection:text-zinc-300 dark:selection:bg-white/10 dark:selection:text-gray-400">
+    <div class="flex flex-col min-h-screen">
+        <div class="w-full max-w-6xl mx-auto px-4 flex-1 sm:px-6 lg:px-8">
+            <div class="w-full pb-24">
+                <header class="mx-auto max-w-6xl py-8">
+    <div class="flex items-center justify-between">
+        <div class="relative flex flex-1 items-center">
+            <div class="flex flex-1 gap-x-20">
+                <div class="size-10 bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10">
+                    <a href="https://arthurmonney.me" class="block size-full">
+                        <span class="sr-only">Arthur Monney</span>
+                        <img class="size-9 object-cover" src="https://arthurmonney.me/images/me.jpg" alt="Arthur Monney" width="36" height="36">
+                    </a>
+                </div>
+                <nav class="pointer-events-auto hidden md:block">
+                    <ul id="nav" class="flex bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+                        <li>
+                            <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/about">
+    A propos
+
+    
+    </a>
+                        </li>
+                        <li>
+                            <a class="relative block px-3 py-2 transition text-blue-400" href="https://arthurmonney.me/blog">
+    Blog
+
+    
+            <span class="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0"></span>
+    </a>
+                        </li>
+                        <li>
+                            <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/projects">
+    Projets
+
+    
+    </a>
+                        </li>
+                        <li>
+                            <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/talks">
+    Talks
+
+    
+    </a>
+                        </li>
+                        <li>
+                            <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/uses">
+    Setup
+
+    
+    </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div x-data="{ open: false }" @keydown.window.escape="open = false" class="md:hidden">
+                <button @click="open = true" class="group flex items-center bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20" type="button" aria-expanded="false" id="popover-button">
+                    Menu
+                    <svg viewBox="0 0 8 6" aria-hidden="true" class="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-400">
+                        <path d="M1.75 1.75 4 4.25l2.25-2.5" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+                <div x-show="open" style="display: none;">
+                    <div x-show="open" x-transition:enter="duration-200 ease-out" x-transition:enter-start="scale-95 opacity-0" x-transition:enter-end="scale-100 opacity-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="scale-100 opacity-100" x-transition:leave-end="scale-95 opacity-0" class="fixed inset-x-4 top-8 z-50 origin-top-right transform transition" style="display: none;">
+                        <div class="bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800">
+                            <div class="flex flex-row-reverse items-center justify-between">
+                                <button @click="open = false" aria-label="Close menu" class="-m-1 p-1" type="button">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true" class="size-6 text-zinc-400">
+                                        <path d="m17.25 6.75-10.5 10.5M6.75 6.75l10.5 10.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </button>
+                                <h2 class="text-sm font-medium text-zinc-400">
+                                    Navigation
+                                </h2>
+                            </div>
+                            <nav class="mt-6 divide-y divide-zinc-100 divide-zinc-100/5">
+                                <ul class="pb-6 text-base text-zinc-800 dark:text-zinc-300">
+                                    <li class="-mx-3">
+                                        <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me">
+    Accueil
+
+    
+    </a>
+                                    </li>
+                                    <li class="-mx-3">
+                                        <a class="relative block px-3 py-2 transition text-blue-400" href="https://arthurmonney.me/blog">
+    Blog
+
+    
+            <span class="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0"></span>
+    </a>
+                                    </li>
+                                    <li class="-mx-3">
+                                        <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/about">
+    A propos
+
+    
+    </a>
+                                    </li>
+                                    <li class="-mx-3">
+                                        <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/projects">
+    Projets
+
+    
+    </a>
+                                    </li>
+                                    <li class="-mx-3">
+                                        <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/talks">
+    Talks
+
+    
+    </a>
+                                    </li>
+                                    <li class="-mx-3">
+                                        <a class="relative block px-3 py-2 transition hover:text-blue-500 dark:hover:text-white" href="https://arthurmonney.me/uses">
+    Setup
+
+    
+    </a>
+                                    </li>
+                                </ul>
+                                <div class="flex-wrap space-x-4 flex items-center pt-6">
+    <a href="https://twitter.com/monneyarthur" class="text-zinc-500 transition hover:text-black dark:hover:text-white">
+        <span class="sr-only">Twitter</span>
+        <svg aria-hidden="true" class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,216H160L48,40H96Z" opacity="0.2"></path><path d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"></path></svg>    </a>
+    <a href="https://www.linkedin.com/in/arthurmonney" class="text-zinc-500 transition hover:text-[#0a66c2]">
+        <span class="sr-only">LinkedIn</span>
+        <svg aria-hidden="true" class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,40V216a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8H216A8,8,0,0,1,224,40Z" opacity="0.2"></path><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path></svg>    </a>
+    <a href="https://github.com/mckenziearts" class="text-zinc-500 transition hover:text-zinc-900 dark:hover:text-[#fafafa]">
+        <span class="sr-only">GitHub</span>
+        <svg class="size-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+</svg>
+    </a>
+    <a href="https://www.youtube.com/@lechretiendev" class="text-zinc-500 transition hover:text-[#FF0000]">
+        <span class="sr-only">YouTube</span>
+        <svg aria-hidden="true" class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M226.59,71.53a16,16,0,0,0-9.63-11C183.48,47.65,128,48,128,48s-55.48-.35-89,12.58a16,16,0,0,0-9.63,11C27.07,80.54,24,98.09,24,128s3.07,47.46,5.41,56.47A16,16,0,0,0,39,195.42C72.52,208.35,128,208,128,208s55.48.35,89-12.58a16,16,0,0,0,9.63-10.95c2.34-9,5.41-26.56,5.41-56.47S228.93,80.54,226.59,71.53ZM112,160V96l48,32Z" opacity="0.2"></path><path d="M164.44,121.34l-48-32A8,8,0,0,0,104,96v64a8,8,0,0,0,12.44,6.66l48-32a8,8,0,0,0,0-13.32ZM120,145.05V111l25.58,17ZM234.33,69.52a24,24,0,0,0-14.49-16.4C185.56,39.88,131,40,128,40s-57.56-.12-91.84,13.12a24,24,0,0,0-14.49,16.4C19.08,79.5,16,97.74,16,128s3.08,48.5,5.67,58.48a24,24,0,0,0,14.49,16.41C69,215.56,120.4,216,127.34,216h1.32c6.94,0,58.37-.44,91.18-13.11a24,24,0,0,0,14.49-16.41c2.59-10,5.67-28.22,5.67-58.48S236.92,79.5,234.33,69.52Zm-15.49,113a8,8,0,0,1-4.77,5.49c-31.65,12.22-85.48,12-86.12,12s-54.37.18-86-12a8,8,0,0,1-4.77-5.49C34.8,173.39,32,156.57,32,128s2.8-45.39,5.16-54.47A8,8,0,0,1,41.93,68C73.58,55.82,127.4,56,128.05,56s54.37-.18,86,12a8,8,0,0,1,4.77,5.49C221.2,82.61,224,99.43,224,128S221.2,173.39,218.84,182.47Z"></path></svg>    </a>
+    <a href="mailto:contact@arthurmonney.me" class="inline-block bg-white/90 px-3 py-2 text-sm font-medium leading-5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+        <span class="sr-only">Adresse E-mail</span>
+        Par Mail
+    </a>
+</div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="fixed inset-0 z-30 bg-zinc-800/40 backdrop-blur-xs dark:bg-black/80"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center">
+            <div class="flex-wrap space-x-4 hidden items-center lg:flex">
+    <a href="https://twitter.com/monneyarthur" class="text-zinc-500 transition hover:text-black dark:hover:text-white">
+        <span class="sr-only">Twitter</span>
+        <svg aria-hidden="true" class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,216H160L48,40H96Z" opacity="0.2"></path><path d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"></path></svg>    </a>
+    <a href="https://www.linkedin.com/in/arthurmonney" class="text-zinc-500 transition hover:text-[#0a66c2]">
+        <span class="sr-only">LinkedIn</span>
+        <svg aria-hidden="true" class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,40V216a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8H216A8,8,0,0,1,224,40Z" opacity="0.2"></path><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path></svg>    </a>
+    <a href="https://github.com/mckenziearts" class="text-zinc-500 transition hover:text-zinc-900 dark:hover:text-[#fafafa]">
+        <span class="sr-only">GitHub</span>
+        <svg class="size-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+</svg>
+    </a>
+    <a href="https://www.youtube.com/@lechretiendev" class="text-zinc-500 transition hover:text-[#FF0000]">
+        <span class="sr-only">YouTube</span>
+        <svg aria-hidden="true" class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M226.59,71.53a16,16,0,0,0-9.63-11C183.48,47.65,128,48,128,48s-55.48-.35-89,12.58a16,16,0,0,0-9.63,11C27.07,80.54,24,98.09,24,128s3.07,47.46,5.41,56.47A16,16,0,0,0,39,195.42C72.52,208.35,128,208,128,208s55.48.35,89-12.58a16,16,0,0,0,9.63-10.95c2.34-9,5.41-26.56,5.41-56.47S228.93,80.54,226.59,71.53ZM112,160V96l48,32Z" opacity="0.2"></path><path d="M164.44,121.34l-48-32A8,8,0,0,0,104,96v64a8,8,0,0,0,12.44,6.66l48-32a8,8,0,0,0,0-13.32ZM120,145.05V111l25.58,17ZM234.33,69.52a24,24,0,0,0-14.49-16.4C185.56,39.88,131,40,128,40s-57.56-.12-91.84,13.12a24,24,0,0,0-14.49,16.4C19.08,79.5,16,97.74,16,128s3.08,48.5,5.67,58.48a24,24,0,0,0,14.49,16.41C69,215.56,120.4,216,127.34,216h1.32c6.94,0,58.37-.44,91.18-13.11a24,24,0,0,0,14.49-16.41c2.59-10,5.67-28.22,5.67-58.48S236.92,79.5,234.33,69.52Zm-15.49,113a8,8,0,0,1-4.77,5.49c-31.65,12.22-85.48,12-86.12,12s-54.37.18-86-12a8,8,0,0,1-4.77-5.49C34.8,173.39,32,156.57,32,128s2.8-45.39,5.16-54.47A8,8,0,0,1,41.93,68C73.58,55.82,127.4,56,128.05,56s54.37-.18,86,12a8,8,0,0,1,4.77,5.49C221.2,82.61,224,99.43,224,128S221.2,173.39,218.84,182.47Z"></path></svg>    </a>
+    <a href="mailto:contact@arthurmonney.me" class="inline-block bg-white/90 px-3 py-2 text-sm font-medium leading-5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+        <span class="sr-only">Adresse E-mail</span>
+        Par Mail
+    </a>
+</div>
+            <div class="pointer-events-auto ml-6">
+                <button onclick="toggle()" type="button" aria-label="Switch to light theme" class="group bg-white/90 p-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20">
+                    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="size-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-yellow-50 [@media(prefers-color-scheme:dark)]:stroke-yellow-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-yellow-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-yellow-600">
+                        <path d="M8 12.25A4.25 4.25 0 0 1 12.25 8v0a4.25 4.25 0 0 1 4.25 4.25v0a4.25 4.25 0 0 1-4.25 4.25v0A4.25 4.25 0 0 1 8 12.25v0Z"></path>
+                        <path d="M12.25 3v1.5M21.5 12.25H20M18.791 18.791l-1.06-1.06M18.791 5.709l-1.06 1.06M12.25 20v1.5M4.5 12.25H3M6.77 6.77 5.709 5.709M6.77 17.73l-1.061 1.061" fill="none"></path>
+                    </svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" class="[@media_not_(prefers-color-scheme:dark)]:fill-blue-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-blue-500 hidden size-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400">
+                        <path d="M17.25 16.22a6.937 6.937 0 0 1-9.47-9.47 7.451 7.451 0 1 0 9.47 9.47ZM12.75 7C17 7 17 2.75 17 2.75S17 7 21.25 7C17 7 17 11.25 17 11.25S17 7 12.75 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+                <main class="min-h-full mt-10 sm:mt-12">
+                    <div class="relative max-w-4xl mx-auto lg:max-w-none">
+        <a href="https://arthurmonney.me/blog" class="inline-flex items-center text-sm group gap-x-4 text-zinc-400 hover:text-zinc-500 dark:text-zinc-500 dark:hover:text-zinc-400">
+            <span class="flex items-center justify-center size-10 transition bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20">
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="size-4 transition stroke-zinc-500 group-hover:stroke-zinc-400">
+                    <path d="M7.25 11.25 3.75 8m0 0 3.5-3.25M3.75 8h8.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </span>
+            Retour aux articles
+        </a>
+        
+        <div class="mt-10 lg:grid lg:grid-cols-4 lg:gap-x-12">
+            <article class="lg:col-span-3">
+                <header class="flex flex-col">
+                    <div class="flex items-center gap-x-4">
+                        <time datetime="2026-03-07" class="flex items-center text-sm capitalize text-zinc-400 dark:text-zinc-500">
+                            7 mars 2026
+                        </time>
+
+                                                    <a href="https://arthurmonney.me/tags/laravel" class="inline-flex items-center bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-500 ring-1 ring-inset ring-zinc-400/20 hover:text-zinc-700 hover:ring-zinc-400/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:text-white dark:hover:ring-white/20">
+    Laravel
+</a>
+                                            </div>
+                    <h1 class="mt-4 font-heading text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                        static $variable en PHP : un piège silencieux avec Laravel Octane
+                    </h1>
+                </header>
+                                    <div class="aspect-h-2 aspect-w-4 mt-8">
+                        <img src="https://res.cloudinary.com/mckenziearts/image/upload/f_auto,q_auto/v1772884616/laravel-octane_b7otuq.jpg" alt="static $variable en PHP : un piège silencieux avec Laravel Octane" class="object-cover shadow-xl">
+                    </div>
+                
+                <div class="prose prose-lg prose-blue mt-8 text-zinc-600 dark:prose-invert dark:text-zinc-300/80 lg:max-w-none">
+                    <p>Quand on travaille avec <a href="https://laravel.com">Laravel</a> sans <a href="https://laravel.com/docs/octane">Octane</a>, certaines habitudes de code semblent inoffensives. Mais dès qu'on passe à Octane, elles peuvent provoquer des bugs difficiles à reproduire et encore plus difficiles à débugger en production.</p>
+<p>C'est exactement ce qui m'est arrivé avec une simple variable <code>static</code> dans un helper.</p>
+<hr>
+<h2 id="a-idle-contexte-hrefle-contexte-classanchor-aria-hiddentrue-titlepermalinkale-contexte"><a id="le-contexte" href="#le-contexte" class="anchor" aria-hidden="true" title="Permalink"></a>Le contexte</h2>
+<p>Dans mon projet, j'avais un helper <code>current_tax_label()</code> dont le rôle est de retourner le label de taxe applicable à l'utilisateur selon sa zone géographique (<code>TTC</code> ou <code>HT</code>).</p>
+<p>Pour éviter de refaire le calcul plusieurs fois dans la même requête, j'avais utilisé une technique classique de memoization :</p>
+<pre><code data-theme="material-theme-ocean" data-lang="php" class="torchlight" style="background-color: #0F111A; --theme-selection-background: #00000080;"><!-- Syntax highlighted by torchlight.dev --><div class="line"><span style="color: #C792EA;">function</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">current_tax_label</span><span style="color: #89DDFF;">():</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">string</span></div><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #C792EA;">static</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">label </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">null;</span></div><div class="line">&nbsp;</div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">($</span><span style="color: #A6ACCD;">label </span><span style="color: #89DDFF;">!==</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">null)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">        </span><span style="color: #89DDFF;">return</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">label</span><span style="color: #89DDFF;">;</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">}</span></div><div class="line">&nbsp;</div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">zone </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">ZoneSessionManager</span><span style="color: #89DDFF;">::</span><span style="color: #82AAFF;">getSession</span><span style="color: #89DDFF;">();</span></div><div class="line">&nbsp;</div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">(!</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">zone </span><span style="color: #89DDFF;">instanceof</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">CountryByZoneData</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">        </span><span style="color: #89DDFF;">return</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">label </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">''</span><span style="color: #89DDFF;">;</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">}</span></div><div class="line">&nbsp;</div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">taxZone </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">TaxZone</span><span style="color: #89DDFF;">::</span><span style="color: #82AAFF;">query</span><span style="color: #89DDFF;">()</span></div><div class="line"><span style="color: #A6ACCD;">        </span><span style="color: #89DDFF;">-&gt;</span><span style="color: #82AAFF;">whereHas</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">'</span><span style="color: #C3E88D;">country</span><span style="color: #89DDFF;">'</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">fn</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">($</span><span style="color: #A6ACCD;">q</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">q</span><span style="color: #89DDFF;">-&gt;</span><span style="color: #82AAFF;">where</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">'</span><span style="color: #C3E88D;">cca2</span><span style="color: #89DDFF;">'</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">zone</span><span style="color: #89DDFF;">-&gt;</span><span style="color: #A6ACCD;">countryCode</span><span style="color: #89DDFF;">))</span></div><div class="line"><span style="color: #A6ACCD;">        </span><span style="color: #89DDFF;">-&gt;</span><span style="color: #82AAFF;">whereNull</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">'</span><span style="color: #C3E88D;">province_code</span><span style="color: #89DDFF;">'</span><span style="color: #89DDFF;">)</span></div><div class="line"><span style="color: #A6ACCD;">        </span><span style="color: #89DDFF;">-&gt;</span><span style="color: #82AAFF;">first</span><span style="color: #89DDFF;">();</span></div><div class="line">&nbsp;</div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">return</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">label </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">taxZone</span><span style="color: #89DDFF;">?-&gt;</span><span style="color: #A6ACCD;">is_tax_inclusive </span><span style="color: #89DDFF;">?</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">__</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">'</span><span style="color: #C3E88D;">TTC</span><span style="color: #89DDFF;">'</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">__</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">'</span><span style="color: #C3E88D;">HT</span><span style="color: #89DDFF;">'</span><span style="color: #89DDFF;">);</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+<p>En PHP classique, ce code est parfaitement correct. La variable <code>static $label</code> est initialisée à <code>null</code> à chaque nouvelle requête, et mémorisée le temps de celle-ci.</p>
+<hr>
+<h2 id="a-idpourquoi-ca-fonctionne-en-php-classique-hrefpourquoi-ca-fonctionne-en-php-classique-classanchor-aria-hiddentrue-titlepermalinkapourquoi-ca-fonctionne-en-php-classique"><a id="pourquoi-ça-fonctionne-en-php-classique" href="#pourquoi-ça-fonctionne-en-php-classique" class="anchor" aria-hidden="true" title="Permalink"></a>Pourquoi ça fonctionne en PHP classique</h2>
+<p>En PHP standard (Apache, PHP-FPM), chaque requête HTTP démarre un <strong>nouveau processus PHP</strong> qui repart de zéro. Toute la mémoire est libérée à la fin de la requête. Donc <code>static $label</code> est bien réinitialisée à <code>null</code> à chaque fois.</p>
+<pre><code data-theme="material-theme-ocean" data-lang="text" class="torchlight" style="background-color: #0F111A; --theme-selection-background: #00000080;"><!-- Syntax highlighted by torchlight.dev --><div class="line"><span style="color: #A6ACCD;">Requête 1 → nouveau processus → $label = null → calcul → 'TTC'  ✅</span></div><div class="line"><span style="color: #A6ACCD;">Requête 2 → nouveau processus → $label = null → calcul → 'HT'   ✅</span></div></code></pre>
+<hr>
+<h2 id="a-idpourquoi-cest-un-bug-avec-octane-hrefpourquoi-cest-un-bug-avec-octane-classanchor-aria-hiddentrue-titlepermalinkapourquoi-cest-un-bug-avec-octane"><a id="pourquoi-cest-un-bug-avec-octane" href="#pourquoi-cest-un-bug-avec-octane" class="anchor" aria-hidden="true" title="Permalink"></a>Pourquoi c'est un bug avec Octane</h2>
+<p>Laravel Octane (avec FrankenPHP ou Swoole) fonctionne différemment. L'application est chargée <strong>une seule fois en mémoire</strong> et des workers restent actifs en permanence pour traiter les requêtes entrantes. Il n'y a plus de "nouveau processus" à chaque requête.</p>
+<p>Le problème : <strong>les variables <code>static</code> ne sont jamais réinitialisées</strong> entre les requêtes dans le même worker. Elles gardent leur valeur indéfiniment.</p>
+<pre><code data-theme="material-theme-ocean" data-lang="text" class="torchlight" style="background-color: #0F111A; --theme-selection-background: #00000080;"><!-- Syntax highlighted by torchlight.dev --><div class="line"><span style="color: #A6ACCD;">Worker 1 — Requête A (utilisateur en France, zone EUR)</span></div><div class="line"><span style="color: #A6ACCD;">  → $label est null → calcul → $label = 'TTC'</span></div><div class="line">&nbsp;</div><div class="line"><span style="color: #A6ACCD;">Worker 1 — Requête B (utilisateur au Cameroun, zone XAF)</span></div><div class="line"><span style="color: #A6ACCD;">  → $label est déjà 'TTC' (valeur de la requête précédente !)</span></div><div class="line"><span style="color: #A6ACCD;">  → retourne 'TTC' sans recalculer</span></div><div class="line"><span style="color: #A6ACCD;">  → ❌ mauvais label affiché</span></div></code></pre>
+<p>L'utilisateur camerounais voit le label de l'utilisateur français. Et selon l'ordre d'arrivée des requêtes, ça peut s'inverser. Le bug est <strong>aléatoire</strong>, <strong>silencieux</strong>, et ne génère aucune erreur.</p>
+<hr>
+<h2 id="a-idla-distinction-importante-hrefla-distinction-importante-classanchor-aria-hiddentrue-titlepermalinkala-distinction-importante"><a id="la-distinction-importante" href="#la-distinction-importante" class="anchor" aria-hidden="true" title="Permalink"></a>La distinction importante</h2>
+<p>Beaucoup confondent les différents usages du mot-clé <code>static</code> en PHP. Voici ce qui pose problème et ce qui ne pose pas problème :</p>
+<table>
+<thead>
+<tr>
+<th>Syntaxe</th>
+<th>Comportement</th>
+<th>Danger pour Octane</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>static $var = null</code> dans une fonction</td>
+<td>Variable persistante entre les appels</td>
+<td>❌ Oui</td>
+</tr>
+<tr>
+<td>Propriété <code>static</code> de classe mutable</td>
+<td>Persistante dans le process</td>
+<td>❌ Oui</td>
+</tr>
+<tr>
+<td><code>public static function foo()</code></td>
+<td>Simple méthode appelable sans instance</td>
+<td>✅ Non</td>
+</tr>
+<tr>
+<td><code>public const CACHE_TTL = 7200</code></td>
+<td>Valeur immuable, définie à la compilation</td>
+<td>✅ Non</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>La règle : ce n'est pas le mot-clé <code>static</code> sur une <strong>méthode</strong> qui pose problème, c'est le mot-clé <code>static</code> sur une <strong>variable</strong> — parce qu'elle est mutable et persiste dans le worker.</p>
+</blockquote>
+<hr>
+<h2 id="a-idle-fix-hrefle-fix-classanchor-aria-hiddentrue-titlepermalinkale-fix"><a id="le-fix" href="#le-fix" class="anchor" aria-hidden="true" title="Permalink"></a>Le fix</h2>
+<p>La solution est simple : supprimer la memoization. Le coût d'une petite requête SQL supplémentaire est négligeable comparé au risque de données incorrectes en production.</p>
+<pre><code data-theme="material-theme-ocean" data-lang="php" class="torchlight" style="background-color: #0F111A; --theme-selection-background: #00000080;"><!-- Syntax highlighted by torchlight.dev --><div class="line"><span style="color: #C792EA;">function</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">current_tax_label</span><span style="color: #89DDFF;">():</span><span style="color: #A6ACCD;"> </span><span style="color: #F78C6C;">string</span></div><div class="line"><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">zone </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">ZoneSessionManager</span><span style="color: #89DDFF;">::</span><span style="color: #82AAFF;">getSession</span><span style="color: #89DDFF;">();</span></div><div class="line">&nbsp;</div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">if</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">(!</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">zone </span><span style="color: #89DDFF;">instanceof</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">CountryByZoneData</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">{</span></div><div class="line"><span style="color: #A6ACCD;">        </span><span style="color: #89DDFF;">return</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">''</span><span style="color: #89DDFF;">;</span></div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">}</span></div><div class="line">&nbsp;</div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">taxZone </span><span style="color: #89DDFF;">=</span><span style="color: #A6ACCD;"> </span><span style="color: #FFCB6B;">TaxZone</span><span style="color: #89DDFF;">::</span><span style="color: #82AAFF;">query</span><span style="color: #89DDFF;">()</span></div><div class="line"><span style="color: #A6ACCD;">        </span><span style="color: #89DDFF;">-&gt;</span><span style="color: #82AAFF;">whereHas</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">'</span><span style="color: #C3E88D;">country</span><span style="color: #89DDFF;">'</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #C792EA;">fn</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">($</span><span style="color: #A6ACCD;">q</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">=&gt;</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">q</span><span style="color: #89DDFF;">-&gt;</span><span style="color: #82AAFF;">where</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">'</span><span style="color: #C3E88D;">cca2</span><span style="color: #89DDFF;">'</span><span style="color: #89DDFF;">,</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">zone</span><span style="color: #89DDFF;">-&gt;</span><span style="color: #A6ACCD;">countryCode</span><span style="color: #89DDFF;">))</span></div><div class="line"><span style="color: #A6ACCD;">        </span><span style="color: #89DDFF;">-&gt;</span><span style="color: #82AAFF;">whereNull</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">'</span><span style="color: #C3E88D;">province_code</span><span style="color: #89DDFF;">'</span><span style="color: #89DDFF;">)</span></div><div class="line"><span style="color: #A6ACCD;">        </span><span style="color: #89DDFF;">-&gt;</span><span style="color: #82AAFF;">first</span><span style="color: #89DDFF;">();</span></div><div class="line">&nbsp;</div><div class="line"><span style="color: #A6ACCD;">    </span><span style="color: #89DDFF;">return</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">$</span><span style="color: #A6ACCD;">taxZone</span><span style="color: #89DDFF;">?-&gt;</span><span style="color: #A6ACCD;">is_tax_inclusive </span><span style="color: #89DDFF;">?</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">__</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">'</span><span style="color: #C3E88D;">TTC</span><span style="color: #89DDFF;">'</span><span style="color: #89DDFF;">)</span><span style="color: #A6ACCD;"> </span><span style="color: #89DDFF;">:</span><span style="color: #A6ACCD;"> </span><span style="color: #82AAFF;">__</span><span style="color: #89DDFF;">(</span><span style="color: #89DDFF;">'</span><span style="color: #C3E88D;">HT</span><span style="color: #89DDFF;">'</span><span style="color: #89DDFF;">);</span></div><div class="line"><span style="color: #89DDFF;">}</span></div></code></pre>
+<p>Si la performance est vraiment un enjeu, la bonne approche avec Octane est d'utiliser le <strong>cache Laravel</strong> (<code>Cache::remember(...)</code>) keyed sur un identifiant de requête ou de session — pas une variable statique globale.</p>
+<hr>
+<h2 id="a-ida-retenir-hrefa-retenir-classanchor-aria-hiddentrue-titlepermalinkaa-retenir"><a id="à-retenir" href="#à-retenir" class="anchor" aria-hidden="true" title="Permalink"></a>À retenir</h2>
+<p>Si tu utilises Laravel Octane, audite ton code à la recherche de :</p>
+<ul>
+<li><code>static $variable</code> dans des fonctions ou helpers</li>
+<li>Propriétés <code>static</code> de classes modifiées à l'exécution</li>
+<li>Singletons qui stockent un état lié à l'utilisateur ou à la requête</li>
+</ul>
+<p>Ces patterns sont courants et fonctionnent parfaitement sans Octane. Avec Octane, ils deviennent des bombes à retardement.</p>
+<hr>
+<p><em>Ce bug a été découvert lors d'une revue architecturale de l'application <a href="https://demo.laravelshopper.dev">e-commerce demo multi-zones</a> construite avec <a href="https://laravelshopper.dev">Laravel Shopper</a>.</em></p>
+
+                </div>
+            </article>
+            <aside class="hidden lg:mt-10 lg:block">
+                <div class="sticky top-10">
+                    <h4 class="text-sm font-medium leading-5 text-zinc-700 dark:text-zinc-200">
+                        Sommaire
+                    </h4>
+                    <ul class="toc mt-4 text-sm leading-6 text-zinc-500 dark:text-zinc-400">
+    <li>
+                    
+            <a href="#le-contexte" class="block py-1.5 text-zinc-500 hover:text-zinc-800 transition ease-in dark:text-zinc-400 dark:hover:text-zinc-300 current">
+                Le contexte
+            </a>
+
+            
+                                                
+                
+                                    </li>
+                    <li>
+                           
+            <a href="#pourquoi-ca-fonctionne-en-php-classique" class="block py-1.5 text-zinc-500 hover:text-zinc-800 transition ease-in dark:text-zinc-400 dark:hover:text-zinc-300">
+                Pourquoi ça fonctionne en PHP classique
+            </a>
+
+            
+                                                
+                
+                                    </li>
+                    <li>
+                           
+            <a href="#pourquoi-cest-un-bug-avec-octane" class="block py-1.5 text-zinc-500 hover:text-zinc-800 transition ease-in dark:text-zinc-400 dark:hover:text-zinc-300">
+                Pourquoi c'est un bug avec Octane
+            </a>
+
+            
+                                                
+                
+                                    </li>
+                    <li>
+                           
+            <a href="#la-distinction-importante" class="block py-1.5 text-zinc-500 hover:text-zinc-800 transition ease-in dark:text-zinc-400 dark:hover:text-zinc-300">
+                La distinction importante
+            </a>
+
+            
+                                                
+                
+                                    </li>
+                    <li>
+                           
+            <a href="#le-fix" class="block py-1.5 text-zinc-500 hover:text-zinc-800 transition ease-in dark:text-zinc-400 dark:hover:text-zinc-300">
+                Le fix
+            </a>
+
+            
+                                                
+                
+                                    </li>
+                    <li>
+                           
+            <a href="#a-retenir" class="block py-1.5 text-zinc-500 hover:text-zinc-800 transition ease-in dark:text-zinc-400 dark:hover:text-zinc-300">
+                À retenir
+            </a>
+
+            
+                        </li>
+</ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+                </main>
+            </div>
+        </div>
+
+        <footer class="lg:pb-10" aria-labelledby="Pied de page">
+    <div class="relative bg-gray-50 max-w-6xl mx-auto py-10 px-4 sm:px-6 lg:px-8 dark:bg-zinc-800">
+        <div class="space-y-4 items-center justify-between sm:flex sm:space-y-0">
+            <div>
+                <p class="text-sm text-zinc-900 font-medium sm:mt-0 dark:text-white">
+                    © Arthur Monney 2026. Tous droits reservés.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-sm text-zinc-700 dark:text-zinc-300">
+                    <a class="transition hover:text-zinc-900 dark:hover:text-white" href="https://arthurmonney.me">
+                        Accueil
+                    </a>
+                    <span class="text-blue-400">✦</span>
+                    <a class="transition hover:text-zinc-900 dark:hover:text-white" href="https://arthurmonney.me/about">
+                        A propos
+                    </a>
+                    <span class="text-blue-400">✦</span>
+                    <a class="transition hover:text-zinc-900 dark:hover:text-white" href="https://arthurmonney.me/blog">
+                        Blog
+                    </a>
+                    <span class="text-blue-400">✦</span>
+                    <a class="transition hover:text-zinc-900 dark:hover:text-white" href="https://arthurmonney.me/projects">
+                        Projets
+                    </a>
+                    <span class="text-blue-400">✦</span>
+                    <a class="transition hover:text-zinc-900 dark:hover:text-white" href="https://arthurmonney.me/talks">
+                        Talks
+                    </a>
+                    <span class="text-blue-400">✦</span>
+                    <a class="transition hover:text-zinc-900 dark:hover:text-white" href="https://arthurmonney.me/uses">
+                        Setup
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    </div>
+
+
+
+</body></html>

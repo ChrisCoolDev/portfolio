@@ -1,0 +1,57 @@
+---
+import FeaturedArticle from './FeaturedArticle.astro'
+import ArticleCard from './ArticleCard.astro'
+import { getPublishedArticles } from '../lib/notion'
+
+const allArticles = await getPublishedArticles()
+
+// First article is featured, next 3 are regular cards
+const featuredData = allArticles[0]
+const featuredArticle = featuredData
+  ? {
+      title: featuredData.title,
+      href: `/blog/${featuredData.slug}`,
+      date: featuredData.date,
+      dateFormatted: featuredData.dateFormatted,
+      tag: featuredData.tag,
+      tagHref: '#',
+      excerpt: featuredData.excerpt,
+      image: featuredData.cover || '',
+    }
+  : null
+
+const articles = allArticles.slice(1, 4).map(a => ({
+  title: a.title,
+  href: `/blog/${a.slug}`,
+  date: a.date,
+  dateFormatted: a.dateFormatted,
+  tag: a.tag,
+  tagHref: '#',
+  excerpt: a.excerpt,
+}))
+---
+
+<div class="py-24 sm:pt-28">
+  <div class="relative lg:max-w-2xl">
+    <div class="pointer-events-none">
+      <div class="absolute right-1/2 translate-x-1/2 -top-10 h-px w-full bg-zinc-400 opacity-20"></div>
+      <div class="absolute -top-10 right-1/2 mt-[-0.5px] h-0.5 w-32 bg-gradient-to-r from-blue-500"></div>
+    </div>
+  </div>
+  <div class="py-10">
+    <div class="max-w-2xl">
+      <h2 class="text-xl font-bold font-heading text-zinc-800 dark:text-zinc-100 lg:text-2xl">
+        Blog
+      </h2>
+      <p class="mt-2 text-zinc-600 dark:text-zinc-300/80">
+        Retrouvez mes dernières actualités personnelles, découvertes et recherches dans le développement web &amp; mobile.
+      </p>
+    </div>
+    <div class="mt-8 grid grid-cols-1 gap-10 lg:mt-12 lg:grid-cols-2 lg:grid-rows-3">
+      {featuredArticle && <FeaturedArticle {...featuredArticle} />}
+      {articles.map(article => (
+        <ArticleCard {...article} />
+      ))}
+    </div>
+  </div>
+</div>
