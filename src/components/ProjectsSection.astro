@@ -1,32 +1,9 @@
 ---
 import ProjectCard from './ProjectCard.astro'
+import { projects as allProjects } from '../data/projects'
 
-const projects = [
-  {
-    title: 'Subscribe',
-    href: '#',
-    image: 'https://chrisx01.netlify.app/projects_images/subscribeThumbnail.png',
-    techStack: 'Laravel, React, Tailwindcss',
-    description: "Design and participation in the integration of the web application Subscribe, which allows users to easily manage their subscriptions (Netflix, Spotify, Deezer, etc.).",
-    type: 'side-project' as const,
-  },
-  {
-    title: 'Haku Studio',
-    href: '#',
-    image: 'https://chrisx01.netlify.app/projects_images/hakuThumbnail.png',
-    techStack: 'React, Tailwindcss',
-    description: "Design and integration of the landing page of a creative agency studio called Haku.Studio.",
-    type: 'client' as const,
-  },
-  {
-    title: 'Yeezy Webapp Clone',
-    href: '#',
-    image: 'https://chrisx01.netlify.app/projects_images/yeezyThumbnail.png',
-    techStack: 'Vue, Tailwind, jspdf, htmltocanvas',
-    description: "Built the clone of the entire process of Yeezy e-commerce webapp, with features like receipt generation in PDF.",
-    type: 'side-project' as const,
-  },
-]
+// Affiche les 3 projets les plus récents sur la page d'accueil
+const projects = allProjects.slice(0, 3)
 ---
 
 <div>

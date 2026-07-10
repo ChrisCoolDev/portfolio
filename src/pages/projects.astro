@@ -3,44 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-
-const projects = [
-  {
-    title: "QAlive",
-    href: "https://qalive.ink",
-    image: "/projects_images/qaliveThumbnail.png",
-    techStack: "Web Technologies",
-    description:
-      "Interactive Q&A for every event. Engage your audience in real-time.",
-    type: "side-project" as const,
-  },
-  {
-    title: "Connecteur360",
-    href: "https://connecteur360.com",
-    image: "/projects_images/connecteur360Thumbnail.png",
-    techStack: "Web Technologies",
-    description: "Client platform for Connecteur360.",
-    type: "client" as const,
-  },
-  {
-    title: "Calendar",
-    href: "https://calendar-app-4qc0.onrender.com/home",
-    image: "/projects_images/calendarThumbnail.png",
-    techStack: "Laravel, Livewire, Alpine.js, Tailwindcss",
-    description:
-      "Développement d'un calendrier plutôt authentique, qui permet aux utilisateurs de gérer facilement les dates de naissance de leurs proches.",
-    type: "side-project" as const,
-  },
-  {
-    title: "Growk",
-    href: "https://chrisx01.netlify.app",
-    image: "/projects_images/growThumbnail.png",
-    techStack: "Livewire, Alpine.js, Laravel, Tailwindcss",
-    description:
-      "Development of the web application Growk, which serves as a to-do list and helps users better organize their daily lives.",
-    type: "side-project" as const,
-  },
-];
+import { projects } from "../data/projects";
 ---
 
 <BaseLayout

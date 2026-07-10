@@ -1,15 +1,15 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
-import Header from '../../components/Header.astro'
-import Footer from '../../components/Footer.astro'
-import GridPattern from '../../components/GridPattern.astro'
-import BlogArticleCard from '../../components/BlogArticleCard.astro'
-import { getPublishedArticles } from '../../lib/notion'
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import GridPattern from "../../components/GridPattern.astro";
+import BlogArticleCard from "../../components/BlogArticleCard.astro";
+import { getPublishedArticles } from "../../lib/notion";
 
-const articles = await getPublishedArticles()
+const articles = await getPublishedArticles();
 
 // Extract unique tags from articles
-const tags = [...new Set(articles.map(a => a.tag).filter(Boolean))]
+const tags = [...new Set(articles.map((a) => a.tag).filter(Boolean))];
 ---
 
 <BaseLayout
@@ -25,51 +25,62 @@ const tags = [...new Set(articles.map(a => a.tag).filter(Boolean))]
           <GridPattern />
 
           <header class="max-w-2xl">
-            <h1 class="font-heading text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              J'écris sur la programmation, ma vision de la vie et sur la Foi chrétienne.
+            <h1
+              class="font-heading text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+            >
+              J'écris sur la programmation en particulier, mes idées et mes
+              decouvertes en générale.
             </h1>
             <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-              Je partage sur mes expériences en programmation, les projets que je
-              développe. Je donne aussi souvent des tips et conseils pour pouvoir
-              améliorer sa façon de coder, on apprend plus vite en partageant.
-              Aussi, j'écris sur la Foi en Jésus-Christ
+              Je partage sur mes expériences en programmation, les projets que
+              je développe. Je donne aussi souvent des tips et conseils pour
+              pouvoir améliorer sa façon de coder, on apprend plus vite en
+              partageant.
             </p>
           </header>
 
           <div class="mt-16 grid gap-x-12 lg:mt-20 lg:grid-cols-3">
             <div class="flex flex-col gap-16 lg:col-span-2">
-              {articles.map(article => (
-                <BlogArticleCard
-                  title={article.title}
-                  slug={article.slug}
-                  date={article.date}
-                  dateFormatted={article.dateFormatted}
-                  tag={article.tag}
-                  excerpt={article.excerpt}
-                  readTime={article.readTime}
-                />
-              ))}
+              {
+                articles.map((article) => (
+                  <BlogArticleCard
+                    title={article.title}
+                    slug={article.slug}
+                    date={article.date}
+                    dateFormatted={article.dateFormatted}
+                    tag={article.tag}
+                    excerpt={article.excerpt}
+                    readTime={article.readTime}
+                  />
+                ))
+              }
 
-              {articles.length === 0 && (
-                <p class="text-zinc-500 dark:text-zinc-400">
-                  Aucun article pour le moment. Revenez bientôt !
-                </p>
-              )}
+              {
+                articles.length === 0 && (
+                  <p class="text-zinc-500 dark:text-zinc-400">
+                    Aucun article pour le moment. Revenez bientôt !
+                  </p>
+                )
+              }
             </div>
 
             <aside class="mt-10 hidden pl-10 lg:block">
               <div class="sticky top-10">
-                <h4 class="text-sm font-medium leading-5 text-zinc-700 dark:text-zinc-200">
+                <h4
+                  class="text-sm font-medium leading-5 text-zinc-700 dark:text-zinc-200"
+                >
                   Tous les tags
                 </h4>
                 <ul class="mt-4 flex flex-wrap gap-2" role="list">
-                  {tags.map(tag => (
-                    <li>
-                      <span class="relative inline-flex items-center gap-x-2 bg-zinc-50 px-3 py-1.5 text-sm font-medium text-zinc-600 hover:bg-zinc-100 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800/80 cursor-default">
-                        {tag}
-                      </span>
-                    </li>
-                  ))}
+                  {
+                    tags.map((tag) => (
+                      <li>
+                        <span class="relative inline-flex items-center gap-x-2 bg-zinc-50 px-3 py-1.5 text-sm font-medium text-zinc-600 hover:bg-zinc-100 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800/80 cursor-default">
+                          {tag}
+                        </span>
+                      </li>
+                    ))
+                  }
                 </ul>
               </div>
             </aside>
