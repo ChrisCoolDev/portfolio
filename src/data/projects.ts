@@ -61,11 +61,20 @@ export const projects: Project[] = [
   },
   {
     title: "Personal blog",
-    href: "https://yeezy-clone-psi.vercel.app/",
+    href: "https://sirhc-eight.vercel.app/blog",
     image: "/projects_images/portfolioBlogThumbnail.png",
     techStack: "Astro, Notion Api, I8n ",
     description:
       "Mon blog personnel construit avec Astro et alimenté par l'API Notion comme CMS headless. Propose du contenu bilingue avec support i18n et une expérience de lecture minimaliste.",
     type: "side-project",
   },
+  {
+    title: "Nidouye",
+    href: "https://nidouye.fr",
+    image: "/projects_images/nidouyeThumbnail.png",
+    techStack: "Figma, UX Design, Product Design",
+    description:
+      "Intervention en tant que Product Designer sur cette application web francaise de mise en relation des foyers a la recherche de nounous et de ces dernieres",
+    type: "client",
+  }
 ];
