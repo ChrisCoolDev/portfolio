@@ -2,16 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import Header from '../../components/Header.astro'
 import Footer from '../../components/Footer.astro'
-import { getPublishedArticles, getArticleWithContent } from '../../lib/notion'
+import { getArticleWithContent } from '../../lib/notion'
 import type { ArticleWithContent } from '../../lib/notion'
 
-export async function getStaticPaths() {
-  const articles = await getPublishedArticles()
-
-  return articles.map(article => ({
-    params: { slug: article.slug },
-  }))
-}
+export const prerender = false;
 
 const { slug } = Astro.params
 const article = await getArticleWithContent(slug as string)

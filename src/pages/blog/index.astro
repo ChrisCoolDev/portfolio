@@ -6,6 +6,8 @@ import GridPattern from "../../components/GridPattern.astro";
 import BlogArticleCard from "../../components/BlogArticleCard.astro";
 import { getPublishedArticles } from "../../lib/notion";
 
+export const prerender = false;
+
 const articles = await getPublishedArticles();
 
 // Extract unique tags from articles
